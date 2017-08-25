@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace eae_coolkatz
 {
@@ -11,6 +12,8 @@ namespace eae_coolkatz
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        GameStateManager gameStateManager;
 
         public Game1()
         {
@@ -27,7 +30,7 @@ namespace eae_coolkatz
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            gameStateManager = new GameStateManager();
             base.Initialize();
         }
 
@@ -59,11 +62,20 @@ namespace eae_coolkatz
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
 
             // TODO: Add your update logic here
-
+            switch(gameStateManager.GameState)
+            {
+                case GameStates.Menu:
+                    break;
+                case GameStates.Playing:
+                    break;
+                case GameStates.Paused:
+                    break;
+                case GameStates.End:
+                    Exit();
+                    break;
+            }
             base.Update(gameTime);
         }
 
@@ -74,9 +86,19 @@ namespace eae_coolkatz
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             // TODO: Add your drawing code here
-
+            switch(gameStateManager.GameState)
+            {
+                case GameStates.Menu:
+                    break;
+                case GameStates.Playing:
+                    break;
+                case GameStates.Paused:
+                    break;
+                case GameStates.End:
+                    Exit();
+                    break;
+            }
             base.Draw(gameTime);
         }
     }
