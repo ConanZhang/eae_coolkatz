@@ -9,28 +9,33 @@ namespace eae_coolkatz.Screens
 {
     public class SplashScreen : GameScreen
     {
-        Texture2D image;
-        string path;
+        public Image Image;
+
+        public SplashScreen()
+        {
+            Image = new Image("SplashScreen/Image");
+        }
         public override void LoadContent()
         {
             base.LoadContent();
-            path = "SplashScreen/Image";
-            image = content.Load<Texture2D>(path);
+            Image.LoadContent();
         }
 
         public override void UnloadContent()
         {
             base.UnloadContent();
+            Image.UnloadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            Image.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(image, Vector2.Zero, Color.White);
+            Image.Draw(spriteBatch);
         }
     }
 }
