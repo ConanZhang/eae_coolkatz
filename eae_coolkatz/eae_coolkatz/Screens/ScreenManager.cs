@@ -41,8 +41,9 @@ namespace eae_coolkatz.Screens
             Dimensions = new Vector2(1920, 1080);
             Image = new Image("ScreenManager/Fade");
             Image.Scale = Dimensions;
-            currentScreen = new GameScreen();
-            //currentScreen = new SplashScreen();
+            Image.Effects = "FadeEffect";
+            //currentScreen = new GameScreen();
+            currentScreen = new SplashScreen();
         }
 
         public void ChangeScreens(string screenName)
@@ -63,7 +64,12 @@ namespace eae_coolkatz.Screens
                 {
                     currentScreen.UnloadContent();
                     currentScreen = newScreen;
-                    //TODO: finish transition
+                    currentScreen.LoadContent();
+                }
+                else if(Image.Alpha == 0.0f)
+                {
+                    Image.IsActive = false;
+                    IsTransistioning = false;
                 }
             }
 
@@ -73,22 +79,29 @@ namespace eae_coolkatz.Screens
         {
             this.Content = new ContentManager(content.ServiceProvider, "Content");
             currentScreen.LoadContent();
+            Image.LoadContent();
         }
 
 
         public void UnloadContent()
         {
             currentScreen.UnloadContent();
+            Image.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
         {
             currentScreen.Update(gameTime);
+            Transition(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             currentScreen.Draw(spriteBatch);
+            if(IsTransistioning)
+            {
+                Image.Draw(spriteBatch);
+            }
         }
     }
 }

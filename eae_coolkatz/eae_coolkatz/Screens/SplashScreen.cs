@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using eae_coolkatz.Images;
+using Microsoft.Xna.Framework.Input;
 
 namespace eae_coolkatz.Screens
 {
@@ -15,8 +16,6 @@ namespace eae_coolkatz.Screens
         public SplashScreen()
         {
             Image = new Image("SplashScreen/Image");
-            Image.Effects = "FadeEffect";
-            Image.IsActive = true;
         }
         public override void LoadContent()
         {
@@ -34,6 +33,11 @@ namespace eae_coolkatz.Screens
         {
             base.Update(gameTime);
             Image.Update(gameTime);
+
+            if(Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransistioning)
+            {
+                ScreenManager.Instance.ChangeScreens("SplashScreen");
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)

@@ -11,7 +11,12 @@ namespace eae_coolkatz.Screens
     public class GameScreen
     {
         protected ContentManager content;
+        public Type Type;
 
+        public GameScreen()
+        {
+            Type = GetType();
+        }
         public virtual void LoadContent()
         {
             content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
