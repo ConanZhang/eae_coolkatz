@@ -33,6 +33,10 @@ namespace eae_coolkatz.Menu
             }
         }
 
+        public int ItemNumber
+        {
+            get { return itemNumber; }
+        }
         public Menu()
         {
             id = string.Empty;
@@ -42,6 +46,22 @@ namespace eae_coolkatz.Menu
             Items = new List<MenuItem>();
         }
 
+        public void Transition(float alpha)
+        {
+            foreach(MenuItem item in Items)
+            {
+                item.Image.IsActive = true;
+                item.Image.Alpha = alpha;
+                if(alpha == 0.0f)
+                {
+                    item.Image.FadeEffect.Increase = true;
+                }
+                else
+                {
+                    item.Image.FadeEffect.Increase = false;
+                }
+            }
+        }
         void AlignMenuItems()
         {
             Vector2 dimensions = Vector2.Zero;
