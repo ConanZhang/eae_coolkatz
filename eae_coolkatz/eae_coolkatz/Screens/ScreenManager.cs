@@ -16,6 +16,9 @@ namespace eae_coolkatz.Screens
         public Vector2 Dimensions { private set; get;}
 
         GameScreen currentScreen;
+        public GraphicsDevice GraphicsDevice;
+        public SpriteBatch SpriteBatch;
+
         public static ScreenManager Instance
         {
             get
