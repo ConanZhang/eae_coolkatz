@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using eae_coolkatz.Screens;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -87,8 +88,11 @@ namespace eae_coolkatz
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
             ScreenManager.Instance.Draw(spriteBatch);
+            spriteBatch.End();
 
             switch(gameStateManager.GameState)
             {
