@@ -13,10 +13,6 @@ namespace eae_coolkatz.Screens
     {
         public Image Image;
 
-        public SplashScreen()
-        {
-            Image = new Image("SplashScreen/Image");
-        }
         public override void LoadContent()
         {
             base.LoadContent();

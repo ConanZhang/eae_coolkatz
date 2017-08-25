@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace eae_coolkatz.Images
 {
@@ -16,6 +17,7 @@ namespace eae_coolkatz.Images
 
         public Vector2 Position, Scale;
         public Rectangle SourceRect;
+        [XmlIgnore]
         public Texture2D Texture;
         Vector2 _origin;
         ContentManager content;
@@ -28,10 +30,9 @@ namespace eae_coolkatz.Images
         public FadeEffect FadeEffect;
 
         public bool IsActive;
-        public Image(String path)
+        public Image()
         {
-            Path = path;
-            Text = Effects = string.Empty;
+            Path = Text = Effects = string.Empty;
             FontName = "Fonts/Arial";
             Position = Vector2.Zero;
             Scale = Vector2.One;
@@ -159,7 +160,7 @@ namespace eae_coolkatz.Images
         public void Draw(SpriteBatch spriteBatch)
         {
             _origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
-            spriteBatch.Draw(Texture, Position, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(Texture, Position + _origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.None, 0.0f);
         }
     }
 }
