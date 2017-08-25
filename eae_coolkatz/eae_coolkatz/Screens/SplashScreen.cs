@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using eae_coolkatz.Images;
 
 namespace eae_coolkatz.Screens
 {
@@ -14,6 +15,8 @@ namespace eae_coolkatz.Screens
         public SplashScreen()
         {
             Image = new Image("SplashScreen/Image");
+            Image.Effects = "FadeEffect";
+            Image.IsActive = true;
         }
         public override void LoadContent()
         {

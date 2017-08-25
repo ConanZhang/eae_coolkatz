@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace eae_coolkatz
+namespace eae_coolkatz.Images
 {
     public class Image
     {
@@ -22,15 +22,58 @@ namespace eae_coolkatz
         RenderTarget2D renderTarget;
         SpriteFont font;
 
+        Dictionary<string, ImageEffect> effectList;
+        public string Effects;
+
+        public FadeEffect FadeEffect;
+
+        public bool IsActive;
         public Image(String path)
         {
             Path = path;
-            Text = string.Empty;
+            Text = Effects = string.Empty;
             FontName = "Fonts/Arial";
             Position = Vector2.Zero;
             Scale = Vector2.One;
             Alpha = 1.0f;
             SourceRect = Rectangle.Empty;
+            effectList = new Dictionary<string, ImageEffect>();
+        }
+
+        void SetEffect<T>(ref T effect)
+        {
+
+            if(effect == null)
+            {
+                effect = (T)Activator.CreateInstance(typeof(T));
+            }
+            else
+            {
+                (effect as ImageEffect).IsActive = true;
+                var obj = this;
+                (effect as ImageEffect).LoadContent(ref obj);
+            }
+
+            effectList.Add(effect.GetType().ToString().Replace("eae_coolkatz.Images.", ""), (effect as ImageEffect));
+        }
+
+        public void ActivateEffect(string effect)
+        {
+            if(effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = true;
+                var obj = this;
+                effectList[effect].LoadContent(ref obj);
+            }
+        }
+
+        public void DeactivateEffect(string effect)
+        {
+            if(effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = false;
+                effectList[effect].UnloadContent();
+            }
 
         }
 
@@ -80,16 +123,37 @@ namespace eae_coolkatz
             Texture = renderTarget;
 
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
+
+            SetEffect<FadeEffect>(ref FadeEffect);
+            
+            if(Effects != string.Empty)
+            {
+                string[] split = Effects.Split(':');
+                foreach(string item in split)
+                {
+                    ActivateEffect(item);
+                }
+            }
         }
 
         public void UnloadContent()
         {
             content.Unload();
+            foreach(var effect in effectList)
+            {
+                DeactivateEffect(effect.Key);
+            }
         }
 
         public void Update(GameTime gameTime)
         {
-
+            foreach(var effect in effectList)
+            {
+                if(effect.Value.IsActive)
+                {
+                    effect.Value.Update(gameTime);
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
