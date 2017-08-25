@@ -1,10 +1,12 @@
 ﻿using eae_coolkatz.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace eae_coolkatz.Menu
 {
@@ -13,6 +15,7 @@ namespace eae_coolkatz.Menu
         public event EventHandler OnMenuChange;
         public string Axis;
         public string Effects;
+        [XmlElement("Item")]
         public List<MenuItem> Items;
         int itemNumber;
         string id;
@@ -36,6 +39,7 @@ namespace eae_coolkatz.Menu
             itemNumber = 0;
             Effects = string.Empty;
             Axis = "Y";
+            Items = new List<MenuItem>();
         }
 
         void AlignMenuItems()
@@ -87,19 +91,59 @@ namespace eae_coolkatz.Menu
 
         public void Update(GameTime gameTime)
         {
-            //TODO: Input
             if(Axis == "X")
             {
-
+                if(InputManager.Instance.KeyPressed(Keys.Right))
+                {
+                    itemNumber++;
+                }
+                else if(InputManager.Instance.KeyPressed(Keys.Left))
+                {
+                    itemNumber--;
+                }
             }
             else if(Axis == "Y")
             {
+                if(InputManager.Instance.KeyPressed(Keys.Down))
+                {
+                    itemNumber++;
+                }
+                else if(InputManager.Instance.KeyPressed(Keys.Up))
+                {
+                    itemNumber--;
+                }
+            }
 
+            if(itemNumber < 0)
+            {
+                itemNumber = 0;
+            }
+            else if(itemNumber > Items.Count - 1)
+            {
+                itemNumber = Items.Count - 1;
+            }
+
+            for(int i = 0; i < Items.Count; i++)
+            {
+                if(i == itemNumber)
+                {
+                    Items[i].Image.IsActive = true;
+                }
+                else
+                {
+                    Items[i].Image.IsActive = false;
+                }
+
+                Items[i].Image.Update(gameTime);
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            foreach(MenuItem item in Items)
+            {
+                item.Image.Draw(spriteBatch);
+            }
 
         }
     }

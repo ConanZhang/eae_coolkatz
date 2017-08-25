@@ -66,6 +66,7 @@
     <Content Include="Content\ScreenManager\Fade.png" />
     <Content Include="Content\SplashScreen\Image.png" />
     <Content Include="Icon.ico" />
+    <Content Include="Load\Menus\TitleMenu.xml" />
     <Content Include="Load\ScreenManager.xml" />
     <Content Include="Load\SplashScreen.xml" />
   </ItemGroup>

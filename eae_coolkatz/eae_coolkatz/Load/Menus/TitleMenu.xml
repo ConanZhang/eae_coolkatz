@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <Axis>Y</Axis>
+  <Effects>FadeEffect</Effects>
+  <Item>
+    <Image>
+      <Text>Play</Text>
+    </Image>
+  </Item>
+
+  <Item>
+    <Image>
+      <Text>Options</Text>
+    </Image>
+  </Item>
+
+  <Item>
+    <Image>
+      <Text>Tutorial</Text>
+    </Image>
+  </Item>
+
+  <Item>
+    <Image>
+      <Text>Credits</Text>
+    </Image>
+  </Item>
+
+  <Item>
+    <Image>
+      <Text>Exit</Text>
+    </Image>
+  </Item>
+</Menu>

@@ -18,7 +18,9 @@ namespace eae_coolkatz.Menu
 
         private void Menu_OnMenuChange(object sender, EventArgs e)
         {
+            XmlManager<Menu> xmlMenuManager = new XmlManager<Menu>();
             menu.UnloadContent();
+            menu = xmlMenuManager.Load(menu.ID);
             menu.LoadContent();
         }
 
