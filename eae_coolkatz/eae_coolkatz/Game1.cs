@@ -29,7 +29,9 @@ namespace eae_coolkatz
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
+            graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            graphics.ApplyChanges();
             gameStateManager = new GameStateManager();
             base.Initialize();
         }
@@ -43,7 +45,7 @@ namespace eae_coolkatz
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            ScreenManager.Instance.LoadContent(Content);
         }
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace eae_coolkatz
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            ScreenManager.Instance.UnloadContent();
         }
 
         /// <summary>
@@ -62,8 +64,8 @@ namespace eae_coolkatz
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            ScreenManager.Instance.Update(gameTime);
 
-            // TODO: Add your update logic here
             switch(gameStateManager.GameState)
             {
                 case GameStates.Menu:
@@ -86,7 +88,8 @@ namespace eae_coolkatz
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            // TODO: Add your drawing code here
+            ScreenManager.Instance.Draw(spriteBatch);
+
             switch(gameStateManager.GameState)
             {
                 case GameStates.Menu:
