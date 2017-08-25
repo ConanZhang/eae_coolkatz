@@ -30,7 +30,7 @@ namespace eae_coolkatz.Screens
             base.Update(gameTime);
             Image.Update(gameTime);
 
-            if(Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransistioning)
+            if (InputManager.Instance.KeyPressed(Keys.Enter))
             {
                 ScreenManager.Instance.ChangeScreens("SplashScreen");
             }
