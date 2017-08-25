@@ -35,7 +35,8 @@ namespace eae_coolkatz.Screens
         public ScreenManager()
         {
             Dimensions = new Vector2(1920, 1080);
-            currentScreen = new SplashScreen();
+            currentScreen = new GameScreen();
+            //currentScreen = new SplashScreen();
         }
 
         public void LoadContent(ContentManager content)

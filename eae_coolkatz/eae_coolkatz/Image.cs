@@ -22,10 +22,11 @@ namespace eae_coolkatz
         RenderTarget2D renderTarget;
         SpriteFont font;
 
-        public Image()
+        public Image(String path)
         {
-            Path = Text = string.Empty;
-            FontName = "Image";
+            Path = path;
+            Text = string.Empty;
+            FontName = "Fonts/Arial";
             Position = Vector2.Zero;
             Scale = Vector2.One;
             Alpha = 1.0f;
