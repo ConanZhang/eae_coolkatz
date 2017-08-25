@@ -1,4 +1,5 @@
-﻿using eae_coolkatz.Screens;
+﻿using eae_coolkatz.Images;
+using eae_coolkatz.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,9 +16,12 @@ namespace eae_coolkatz.Screens
         public ContentManager Content { private set; get;}
         public Vector2 Dimensions { private set; get;}
 
-        GameScreen currentScreen;
+        GameScreen currentScreen, newScreen;
         public GraphicsDevice GraphicsDevice;
         public SpriteBatch SpriteBatch;
+
+        public Image Image;
+        public bool IsTransistioning { get; private set; }
 
         public static ScreenManager Instance
         {
@@ -35,8 +39,34 @@ namespace eae_coolkatz.Screens
         public ScreenManager()
         {
             Dimensions = new Vector2(1920, 1080);
+            Image = new Image("ScreenManager/Fade");
+            Image.Scale = Dimensions;
             currentScreen = new GameScreen();
             //currentScreen = new SplashScreen();
+        }
+
+        public void ChangeScreens(string screenName)
+        {
+            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("eae_coolkatz.Screens." + screenName));
+            Image.IsActive = true;
+            Image.FadeEffect.Increase = true;
+            Image.Alpha = 0.0f;
+            IsTransistioning = true;
+        }
+
+        void Transition(GameTime gameTime)
+        {
+            if(IsTransistioning)
+            {
+                Image.Update(gameTime);
+                if(Image.Alpha == 1.0f)
+                {
+                    currentScreen.UnloadContent();
+                    currentScreen = newScreen;
+                    //TODO: finish transition
+                }
+            }
+
         }
 
         public void LoadContent(ContentManager content)
