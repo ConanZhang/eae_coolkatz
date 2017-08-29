@@ -29,6 +29,8 @@
   </Item>
 
   <Item>
+    <LinkType>Screen</LinkType>
+    <LinkId>SplashScreen</LinkId>
     <Image>
       <Text>Exit</Text>
     </Image>

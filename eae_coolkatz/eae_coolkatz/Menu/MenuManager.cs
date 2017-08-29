@@ -28,6 +28,12 @@ namespace eae_coolkatz.Menu
             menu.LoadContent();
             menu.OnMenuChange += Menu_OnMenuChange;
             menu.Transition(0.0f);
+
+            foreach(MenuItem item in menu.Items)
+            {
+                item.Image.StoreEffects();
+                item.Image.ActivateEffect("FadeEffect");
+            }
         }
 
         void Transition(GameTime gameTime)
@@ -47,6 +53,10 @@ namespace eae_coolkatz.Menu
                     else if(first == 1.0f && last == 1.0f)
                     {
                         isTransitioning = false;
+                        foreach(MenuItem item in menu.Items)
+                        {
+                             item.Image.RestoreEffects();
+                        }
                     }
                         
                 }
@@ -83,6 +93,11 @@ namespace eae_coolkatz.Menu
                 {
                     isTransitioning = true;
                     menu.Transition(1.0f);
+                    foreach(MenuItem item in menu.Items)
+                    {
+                        item.Image.StoreEffects();
+                        item.Image.ActivateEffect("FadeEffect");
+                    }
                 }
             }
             Transition(gameTime);
