@@ -34,7 +34,8 @@ namespace eae_coolkatz.Menu
         {
             if(isTransitioning)
             {
-                for(int i = 0; i < menu.Items.Count; i++)
+                int oldMenuCount = menu.Items.Count;
+                for(int i = 0; i < oldMenuCount; i++)
                 {
                     menu.Items[i].Image.Update(gameTime);
                     float first = menu.Items[0].Image.Alpha;
@@ -74,7 +75,6 @@ namespace eae_coolkatz.Menu
             }
             if(InputManager.Instance.KeyPressed(Keys.Enter) && !isTransitioning)
             {
-                isTransitioning = true;
                 if(menu.Items[menu.ItemNumber].LinkType == "Screen")
                 {
                     ScreenManager.Instance.ChangeScreens(menu.Items[menu.ItemNumber].LinkId);
