@@ -15,6 +15,8 @@
   </Item>
 
   <Item>
+    <LinkType>Menu</LinkType>
+    <LinkId>Load/Menus/Tutorial.xml</LinkId>
     <Image>
       <Text>Tutorial</Text>
     </Image>
@@ -27,6 +29,8 @@
   </Item>
 
   <Item>
+    <LinkType>Screen</LinkType>
+    <LinkId>SplashScreen</LinkId>
     <Image>
       <Text>Exit</Text>
     </Image>

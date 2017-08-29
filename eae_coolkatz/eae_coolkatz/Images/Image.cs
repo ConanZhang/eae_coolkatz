@@ -41,6 +41,37 @@ namespace eae_coolkatz.Images
             effectList = new Dictionary<string, ImageEffect>();
         }
 
+        public void StoreEffects()
+        {
+            Effects = string.Empty;
+            foreach(var effect in effectList)
+            {
+                if(effect.Value.IsActive)
+                {
+                    Effects += effect.Key + ":";
+                }
+            }
+
+            if(Effects != string.Empty)
+            {
+                Effects.Remove(Effects.Length - 1);
+            }
+        }
+
+        public void RestoreEffects()
+        {
+            foreach(var effect in effectList)
+            {
+                DeactivateEffect(effect.Key);
+            }
+            string[] split = Effects.Split(':');
+            foreach(string s in split)
+            {
+                ActivateEffect(s);
+            }
+
+        }
+
         void SetEffect<T>(ref T effect)
         {
 

@@ -58,6 +58,11 @@ namespace eae_coolkatz
             return false;
         }
 
+        internal bool KeyPressed(object keys)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool KeyDown(params Keys[] keys)
         {
             foreach(Keys key in keys)
