@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using eae_coolkatz.Menu;
+using eae_coolkatz.Images;
 
 namespace eae_coolkatz.Screens
 {

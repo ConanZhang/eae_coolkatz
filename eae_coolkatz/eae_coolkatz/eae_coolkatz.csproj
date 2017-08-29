@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Menu\Background.png" />
     <Content Include="Content\ScreenManager\Fade.png" />
     <Content Include="Content\SplashScreen\Image.png" />
     <Content Include="Icon.ico" />

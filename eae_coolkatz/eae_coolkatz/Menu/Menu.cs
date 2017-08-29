@@ -1,4 +1,5 @@
-﻿using eae_coolkatz.Screens;
+﻿using eae_coolkatz.Images;
+using eae_coolkatz.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,6 +20,8 @@ namespace eae_coolkatz.Menu
         public List<MenuItem> Items;
         int itemNumber;
         string id;
+
+        public Image Image;
 
         public string ID
         {
@@ -99,6 +102,11 @@ namespace eae_coolkatz.Menu
                 }
             }
             AlignMenuItems();
+
+            if(Image != null)
+            {
+                Image.LoadContent();
+            }
         }
 
         public void UnloadContent()
@@ -106,6 +114,11 @@ namespace eae_coolkatz.Menu
             foreach(MenuItem item in Items)
             {
                 item.Image.UnloadContent();
+            }
+
+            if(Image != null)
+            {
+                Image.UnloadContent();
             }
         }
 
@@ -156,15 +169,23 @@ namespace eae_coolkatz.Menu
 
                 Items[i].Image.Update(gameTime);
             }
+
+            if(Image != null)
+            {
+                Image.Update(gameTime);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if(Image != null)
+            {
+                Image.Draw(spriteBatch);
+            }
             foreach(MenuItem item in Items)
             {
                 item.Image.Draw(spriteBatch);
             }
-
         }
     }
 }

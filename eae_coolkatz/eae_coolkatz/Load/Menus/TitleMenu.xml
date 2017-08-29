@@ -35,4 +35,8 @@
       <Text>Exit</Text>
     </Image>
   </Item>
+
+  <Image>
+    <Path>Menu/Background</Path>
+  </Image>
 </Menu>
