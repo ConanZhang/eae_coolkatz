@@ -3,6 +3,8 @@
   <Axis>Y</Axis>
   <Effects>FadeEffect</Effects>
   <Item>
+    <LinkType>Screen</LinkType>
+    <LinkId>GameplayScreen</LinkId>
     <Image>
       <Text>Play</Text>
     </Image>
