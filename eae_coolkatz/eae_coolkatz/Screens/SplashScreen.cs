@@ -32,7 +32,7 @@ namespace eae_coolkatz.Screens
 
             if (InputManager.Instance.KeyPressed(Keys.Enter))
             {
-                ScreenManager.Instance.ChangeScreens("SplashScreen");
+                ScreenManager.Instance.ChangeScreens("TitleScreen");
             }
         }
 

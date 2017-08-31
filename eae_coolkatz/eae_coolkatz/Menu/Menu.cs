@@ -1,10 +1,13 @@
-﻿using eae_coolkatz.Screens;
+﻿using eae_coolkatz.Images;
+using eae_coolkatz.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace eae_coolkatz.Menu
 {
@@ -13,9 +16,12 @@ namespace eae_coolkatz.Menu
         public event EventHandler OnMenuChange;
         public string Axis;
         public string Effects;
+        [XmlElement("Item")]
         public List<MenuItem> Items;
         int itemNumber;
         string id;
+
+        public Image Image;
 
         public string ID
         {
@@ -30,14 +36,35 @@ namespace eae_coolkatz.Menu
             }
         }
 
+        public int ItemNumber
+        {
+            get { return itemNumber; }
+        }
         public Menu()
         {
             id = string.Empty;
             itemNumber = 0;
             Effects = string.Empty;
             Axis = "Y";
+            Items = new List<MenuItem>();
         }
 
+        public void Transition(float alpha)
+        {
+            foreach(MenuItem item in Items)
+            {
+                item.Image.IsActive = true;
+                item.Image.Alpha = alpha;
+                if(alpha == 0.0f)
+                {
+                    item.Image.FadeEffect.Increase = true;
+                }
+                else
+                {
+                    item.Image.FadeEffect.Increase = false;
+                }
+            }
+        }
         void AlignMenuItems()
         {
             Vector2 dimensions = Vector2.Zero;
@@ -75,6 +102,11 @@ namespace eae_coolkatz.Menu
                 }
             }
             AlignMenuItems();
+
+            if(Image != null)
+            {
+                Image.LoadContent();
+            }
         }
 
         public void UnloadContent()
@@ -83,24 +115,77 @@ namespace eae_coolkatz.Menu
             {
                 item.Image.UnloadContent();
             }
+
+            if(Image != null)
+            {
+                Image.UnloadContent();
+            }
         }
 
         public void Update(GameTime gameTime)
         {
-            //TODO: Input
             if(Axis == "X")
             {
-
+                if(InputManager.Instance.KeyPressed(Keys.Right))
+                {
+                    itemNumber++;
+                }
+                else if(InputManager.Instance.KeyPressed(Keys.Left))
+                {
+                    itemNumber--;
+                }
             }
             else if(Axis == "Y")
             {
+                if(InputManager.Instance.KeyPressed(Keys.Down))
+                {
+                    itemNumber++;
+                }
+                else if(InputManager.Instance.KeyPressed(Keys.Up))
+                {
+                    itemNumber--;
+                }
+            }
 
+            if(itemNumber < 0)
+            {
+                itemNumber = 0;
+            }
+            else if(itemNumber > Items.Count - 1)
+            {
+                itemNumber = Items.Count - 1;
+            }
+
+            for(int i = 0; i < Items.Count; i++)
+            {
+                if(i == itemNumber)
+                {
+                    Items[i].Image.IsActive = true;
+                }
+                else
+                {
+                    Items[i].Image.IsActive = false;
+                }
+
+                Items[i].Image.Update(gameTime);
+            }
+
+            if(Image != null)
+            {
+                Image.Update(gameTime);
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            if(Image != null)
+            {
+                Image.Draw(spriteBatch);
+            }
+            foreach(MenuItem item in Items)
+            {
+                item.Image.Draw(spriteBatch);
+            }
         }
     }
 }

@@ -48,11 +48,11 @@ namespace eae_coolkatz.Screens
         public ScreenManager()
         {
             Dimensions = new Vector2(1920, 1080);
-            currentScreen = new GameScreen();
-            //currentScreen = new SplashScreen();
+            //currentScreen = new GameScreen();
+            currentScreen = new SplashScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;
-            //currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
+            currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
         }
 
         public void ChangeScreens(string screenName)
