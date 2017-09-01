@@ -51,10 +51,12 @@ namespace eae_coolkatz.Screens
 
             body = new Body(world);
             body.BodyType = BodyType.Dynamic;
-            body.Position = new Vector2(0.0f, -1.0f);
+            body.Position = new Vector2(50.0f, -50.0f);
             body.CreateFixture(chassis);
 
             Image.Origin = CalculateOrigin(body);
+            camera.TrackingBody = body;
+            camera.EnableTracking = true;
         }
 
         public override void UnloadContent()
@@ -67,6 +69,7 @@ namespace eae_coolkatz.Screens
         {
             base.Update(gameTime);
             Image.Update(gameTime);
+            camera.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -74,9 +77,7 @@ namespace eae_coolkatz.Screens
             base.Draw(spriteBatch);
             Image.Draw(spriteBatch);
             spriteBatch.Draw(Image.Texture, ConvertUnits.ToDisplayUnits(body.Position), null, Color.White, body.Rotation, Image.Origin, 1f, SpriteEffects.None, 0f);
-            Matrix proj = Matrix.CreateOrthographicOffCenter(0f, ScreenManager.Instance.GraphicsDevice.Viewport.Width, ScreenManager.Instance.GraphicsDevice.Viewport.Height, 0f, 0f, 1f);
-            Matrix view = camera.View;
-            debug.RenderDebugData(ref proj, ref view);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
         }
 
         public static Vector2 CalculateOrigin(Body b)
