@@ -12,6 +12,7 @@ using FarseerPhysics.Collision;
 using FarseerPhysics;
 using FarseerPhysics.DebugView;
 using eae_koolcatz;
+using FarseerPhysics.Factories;
 
 namespace eae_coolkatz.Screens
 {
@@ -29,32 +30,40 @@ namespace eae_coolkatz.Screens
             Image.LoadContent();
 
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
-            world = new World(Vector2.Zero);
-            world.Gravity = new Vector2(0f, 1f);
 
-            debug = new DebugViewXNA(world);
-            debug.LoadContent(ScreenManager.Instance.GraphicsDevice, ScreenManager.Instance.Content);
-            debug.AppendFlags(DebugViewFlags.Shape);
-            debug.AppendFlags(DebugViewFlags.PolygonPoints);
+            if(world == null)
+            {
+                world = new World(Vector2.UnitY*10);
+            }
+            else
+            {
+                world.Clear();
+            }
 
-            Vertices vertices = new Vertices(8);
-            vertices.Add(new Vector2(-2.5f, 0.08f));
-            vertices.Add(new Vector2(-2.375f, -0.46f));
-            vertices.Add(new Vector2(-0.58f, -0.92f));
-            vertices.Add(new Vector2(0.46f, -0.92f));
-            vertices.Add(new Vector2(2.5f, -0.17f));
-            vertices.Add(new Vector2(2.5f, 0.205f));
-            vertices.Add(new Vector2(2.3f, 0.33f));
-            vertices.Add(new Vector2(-2.25f, 0.35f));
+            if(debug == null)
+            {
+                debug = new DebugViewXNA(world);
+                debug.AppendFlags(DebugViewFlags.Shape);
+                debug.AppendFlags(DebugViewFlags.PolygonPoints);
+                debug.LoadContent(ScreenManager.Instance.GraphicsDevice, ScreenManager.Instance.Content);
+            }
 
-            PolygonShape chassis = new PolygonShape(vertices, 2);
+            body = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(480), ConvertUnits.ToSimUnits(50), 10f);
+            body.Position = ConvertUnits.ToSimUnits(240, 50);
+            body.IsStatic = true;
+            body.Restitution = 0.2f;
+            body.Friction = 0.2f;
 
-            body = new Body(world);
-            body.BodyType = BodyType.Dynamic;
-            body.Position = new Vector2(0.0f, -1.0f);
-            body.CreateFixture(chassis);
-
+            var box = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(30), ConvertUnits.ToSimUnits(30), 10f, new Point(30, 30));
+            box.BodyType = BodyType.Dynamic;
+            box.Restitution = 0.2f;
+            box.Friction = 0.2f;
+            box.Position = ConvertUnits.ToSimUnits(100, 0);
+            /*
             Image.Origin = CalculateOrigin(body);
+            camera.TrackingBody = body;
+            camera.EnableTracking = true;
+            */
         }
 
         public override void UnloadContent()
@@ -65,18 +74,18 @@ namespace eae_coolkatz.Screens
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
+            world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f, (1f / 30f)));
             Image.Update(gameTime);
+            camera.Update(gameTime);
+            base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            base.Draw(spriteBatch);
             Image.Draw(spriteBatch);
             spriteBatch.Draw(Image.Texture, ConvertUnits.ToDisplayUnits(body.Position), null, Color.White, body.Rotation, Image.Origin, 1f, SpriteEffects.None, 0f);
-            Matrix proj = Matrix.CreateOrthographicOffCenter(0f, ScreenManager.Instance.GraphicsDevice.Viewport.Width, ScreenManager.Instance.GraphicsDevice.Viewport.Height, 0f, 0f, 1f);
-            Matrix view = camera.View;
-            debug.RenderDebugData(ref proj, ref view);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            base.Draw(spriteBatch);
         }
 
         public static Vector2 CalculateOrigin(Body b)

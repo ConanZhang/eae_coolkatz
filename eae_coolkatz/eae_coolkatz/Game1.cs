@@ -18,7 +18,12 @@ namespace eae_coolkatz
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X,
+                PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y,
+                IsFullScreen = true
+            };
             Content.RootDirectory = "Content";
         }
 
@@ -30,9 +35,6 @@ namespace eae_coolkatz
         /// </summary>
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
-            graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
-            graphics.ApplyChanges();
             gameStateManager = new GameStateManager();
             base.Initialize();
         }
