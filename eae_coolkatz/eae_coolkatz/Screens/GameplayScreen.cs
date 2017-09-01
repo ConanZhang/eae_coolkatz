@@ -15,6 +15,7 @@ using FarseerPhysics;
 using FarseerPhysics.DebugView;
 using eae_koolcatz;
 using FarseerPhysics.Factories;
+using System.Xml.Serialization;
 
 namespace eae_coolkatz.Screens
 {
@@ -29,9 +30,13 @@ namespace eae_coolkatz.Screens
         public Rectangle truckRect;
         DebugViewXNA debug;
 
+        [XmlIgnore]
         public Body _wheelBack;
+        [XmlIgnore]
         public Body _wheelFront;
+        [XmlIgnore]
         public WheelJoint _springBack;
+        [XmlIgnore]
         public WheelJoint _springFront;
 
         //InputManager input = new InputManager();
@@ -75,7 +80,7 @@ namespace eae_coolkatz.Screens
             vertices.Add(new Vector2(-0.58f, -0.92f));
             vertices.Add(new Vector2(0.46f, -0.92f));*/
 
-            PolygonShape chassis = new PolygonShape(, 2);
+            //PolygonShape chassis = new PolygonShape(, 2);
             CircleShape wheelShape = new CircleShape(0.5f, 0.8f);
 
             box = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(150), ConvertUnits.ToSimUnits(100), 10f, new Point(30, 30));
@@ -84,7 +89,7 @@ namespace eae_coolkatz.Screens
             box.Friction = 0.2f;
             box.Position = ConvertUnits.ToSimUnits(0, 0);
             box.IsStatic = false;
-            box.CreateFixture(chassis);
+            //box.CreateFixture(chassis);
             /*
             Image.Origin = CalculateOrigin(body);
             camera.TrackingBody = body;
