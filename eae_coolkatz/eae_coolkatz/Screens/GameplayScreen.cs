@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Common;
 using FarseerPhysics.Collision.Shapes;
+using FarseerPhysics.Dynamics.Joints;
 using eae_coolkatz.Images;
 using FarseerPhysics.Collision;
 using FarseerPhysics;
@@ -27,6 +28,11 @@ namespace eae_coolkatz.Screens
         public Image truck;
         public Rectangle truckRect;
         DebugViewXNA debug;
+
+        public Body _wheelBack;
+        public Body _wheelFront;
+        public WheelJoint _springBack;
+        public WheelJoint _springFront;
 
         //InputManager input = new InputManager();
 
@@ -57,19 +63,28 @@ namespace eae_coolkatz.Screens
             }
 
             body = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(1920f), ConvertUnits.ToSimUnits(70f), 10f);
-            body.Position = ConvertUnits.ToSimUnits(0, 540-35);
+            body.Position = ConvertUnits.ToSimUnits(960, 1080-35);
             //body.Position = ConvertUnits.ToDisplayUnits(0, 1920-35);
             body.IsStatic = true;
             body.Restitution = 0.2f;
             body.Friction = 0.2f;
+
+            /*Vertices vertices = new Vertices(4);
+            vertices.Add(new Vector2(-2.5f, 0.08f));
+            vertices.Add(new Vector2(-2.375f, -0.46f));
+            vertices.Add(new Vector2(-0.58f, -0.92f));
+            vertices.Add(new Vector2(0.46f, -0.92f));*/
+
+            PolygonShape chassis = new PolygonShape(, 2);
+            CircleShape wheelShape = new CircleShape(0.5f, 0.8f);
 
             box = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(150), ConvertUnits.ToSimUnits(100), 10f, new Point(30, 30));
             box.BodyType = BodyType.Dynamic;
             box.Restitution = 0.2f;
             box.Friction = 0.2f;
             box.Position = ConvertUnits.ToSimUnits(0, 0);
-            truckRect = new Rectangle(100, 0, 150, 100);
             box.IsStatic = false;
+            box.CreateFixture(chassis);
             /*
             Image.Origin = CalculateOrigin(body);
             camera.TrackingBody = body;
@@ -109,11 +124,20 @@ namespace eae_coolkatz.Screens
             // Move our sprite based on arrow keys being pressed:
 
             if (InputManager.Instance.KeyDown(Keys.Right))
-                box.LinearVelocity = Vector2.UnitX * 3;
+                box.LinearVelocity += Vector2.UnitX;
             if (InputManager.Instance.KeyDown(Keys.Left))
-                box.LinearVelocity = Vector2.UnitX * -3;
-            if (InputManager.Instance.KeyDown(Keys.Up))
-                box.LinearVelocity = Vector2.UnitY * 20;
+                box.LinearVelocity -= Vector2.UnitX;
+            if (InputManager.Instance.KeyPressed(Keys.Up))
+                box.LinearVelocity += Vector2.UnitY * 25;
+
+            if (Vector2.Dot(box.LinearVelocity,Vector2.UnitX) > 5 || Vector2.Dot(box.LinearVelocity, Vector2.UnitX) < -5)
+            {
+                var direction = Vector2.Normalize(box.LinearVelocity);
+                box.LinearVelocity = direction * 5;
+            }
+
+            
+
 
             background.Update(gameTime);
             truck.Update(gameTime);
