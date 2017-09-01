@@ -49,7 +49,7 @@ namespace eae_coolkatz.Screens
             }
 
             body = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(480), ConvertUnits.ToSimUnits(50), 10f);
-            body.Position = ConvertUnits.ToSimUnits(240, 50);
+            body.Position = ConvertUnits.ToSimUnits(240, 150);
             body.IsStatic = true;
             body.Restitution = 0.2f;
             body.Friction = 0.2f;
