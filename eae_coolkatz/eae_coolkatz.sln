@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eae_coolkatz", "eae_coolkat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics MonoGame", "..\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics MonoGame.csproj", "{0AAD36E3-51A5-4A07-AB60-5C8A66BD38B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugView MonoGame", "..\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\DebugView MonoGame.csproj", "{566F1803-90B5-4947-8730-57F092FBB002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +23,10 @@ Global
 		{0AAD36E3-51A5-4A07-AB60-5C8A66BD38B7}.Debug|x86.Build.0 = Debug|x86
 		{0AAD36E3-51A5-4A07-AB60-5C8A66BD38B7}.Release|x86.ActiveCfg = Release|x86
 		{0AAD36E3-51A5-4A07-AB60-5C8A66BD38B7}.Release|x86.Build.0 = Release|x86
+		{566F1803-90B5-4947-8730-57F092FBB002}.Debug|x86.ActiveCfg = Debug|x86
+		{566F1803-90B5-4947-8730-57F092FBB002}.Debug|x86.Build.0 = Debug|x86
+		{566F1803-90B5-4947-8730-57F092FBB002}.Release|x86.ActiveCfg = Release|x86
+		{566F1803-90B5-4947-8730-57F092FBB002}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

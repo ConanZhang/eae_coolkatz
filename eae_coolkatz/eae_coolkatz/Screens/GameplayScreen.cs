@@ -10,22 +10,32 @@ using FarseerPhysics.Collision.Shapes;
 using eae_coolkatz.Images;
 using FarseerPhysics.Collision;
 using FarseerPhysics;
+using FarseerPhysics.DebugView;
+using eae_koolcatz;
 
 namespace eae_coolkatz.Screens
 {
     public class GameplayScreen : GameScreen
     {
+        Camera2D camera;
         private Body body;
         private World world;
         public Image Image;
+        DebugViewXNA debug;
 
         public override void LoadContent()
         {
             base.LoadContent();
             Image.LoadContent();
 
+            camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
             world = new World(Vector2.Zero);
-            world.Gravity = new Vector2(0f, 10f);
+            world.Gravity = new Vector2(0f, 1f);
+
+            debug = new DebugViewXNA(world);
+            debug.LoadContent(ScreenManager.Instance.GraphicsDevice, ScreenManager.Instance.Content);
+            debug.AppendFlags(DebugViewFlags.Shape);
+            debug.AppendFlags(DebugViewFlags.PolygonPoints);
 
             Vertices vertices = new Vertices(8);
             vertices.Add(new Vector2(-2.5f, 0.08f));
@@ -64,6 +74,9 @@ namespace eae_coolkatz.Screens
             base.Draw(spriteBatch);
             Image.Draw(spriteBatch);
             spriteBatch.Draw(Image.Texture, ConvertUnits.ToDisplayUnits(body.Position), null, Color.White, body.Rotation, Image.Origin, 1f, SpriteEffects.None, 0f);
+            Matrix proj = Matrix.CreateOrthographicOffCenter(0f, ScreenManager.Instance.GraphicsDevice.Viewport.Width, ScreenManager.Instance.GraphicsDevice.Viewport.Height, 0f, 0f, 1f);
+            Matrix view = camera.View;
+            debug.RenderDebugData(ref proj, ref view);
         }
 
         public static Vector2 CalculateOrigin(Body b)

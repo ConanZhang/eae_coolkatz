@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Camera2D.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Images\FadeEffect.cs" />
     <Compile Include="Images\ImageEffect.cs" />
@@ -89,6 +90,10 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\DebugView MonoGame.csproj">
+      <Project>{566F1803-90B5-4947-8730-57F092FBB002}</Project>
+      <Name>DebugView MonoGame</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics MonoGame.csproj">
       <Project>{0aad36e3-51a5-4a07-ab60-5c8a66bd38b7}</Project>
       <Name>Farseer Physics MonoGame</Name>

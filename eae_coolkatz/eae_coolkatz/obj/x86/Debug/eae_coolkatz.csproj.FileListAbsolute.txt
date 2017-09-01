@@ -70,3 +70,6 @@ C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkat
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.RawInput.xml
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D9.xml
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\GameplayScreen.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Font.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.pdb
