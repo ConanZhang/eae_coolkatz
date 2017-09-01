@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <GameplayScreen>
-  <Image>
+  <background>
+    <Path>GameplayScreen/arena</Path>
+  </background>
+  <truck>
     <Path>GameplayScreen/angel</Path>
-  </Image> 
+  </truck>
 </GameplayScreen>
