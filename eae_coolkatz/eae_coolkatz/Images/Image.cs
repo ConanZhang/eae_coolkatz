@@ -19,7 +19,7 @@ namespace eae_coolkatz.Images
         public Rectangle SourceRect;
         [XmlIgnore]
         public Texture2D Texture;
-        Vector2 _origin;
+        public Vector2 Origin;
         ContentManager content;
         RenderTarget2D renderTarget;
         SpriteFont font;
@@ -190,8 +190,8 @@ namespace eae_coolkatz.Images
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            _origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
-            spriteBatch.Draw(Texture, Position + _origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.None, 0.0f);
+            Origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
+            spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
         }
     }
 }

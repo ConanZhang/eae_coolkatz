@@ -4,9 +4,10 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Fonts/Arial.spritefont</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Fonts/Arial.spritefont</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/angel.png</File>
   </SourceFiles>
 </SourceFileCollection>

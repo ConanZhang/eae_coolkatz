@@ -1,31 +1,6 @@
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\eae_coolkatz.exe
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\eae_coolkatz.pdb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\MonoGame.Framework.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.MediaFoundation.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.XAudio2.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.Direct3D11.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.DXGI.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.Direct2D1.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.XInput.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.RawInput.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.Direct3D9.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\MonoGame.Framework.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.MediaFoundation.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.XAudio2.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.Direct3D11.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.DXGI.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.Direct2D1.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.XInput.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.RawInput.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.csprojResolveAssemblyReference.cache
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.exe
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.pdb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\FarseerPhysics MonoGame.dll
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\FarseerPhysics MonoGame.pdb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Debug\Content\SplashScreen\Image.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.exe
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.pdb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.csprojResolveAssemblyReference.cache
@@ -61,3 +36,37 @@ C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\ScreenManager.xml
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\SplashScreen.xml
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\Menus\TitleMenu.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\Menus\Tutorial.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\ScreenManager.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\SplashScreen.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Fonts\Arial.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\angel.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\eae_coolkatz.exe
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\eae_coolkatz.pdb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\FarseerPhysics MonoGame.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\MonoGame.Framework.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.MediaFoundation.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.XAudio2.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D11.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.DXGI.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct2D1.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.XInput.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.RawInput.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D9.dll
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\FarseerPhysics MonoGame.pdb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\MonoGame.Framework.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.MediaFoundation.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.XAudio2.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D11.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.DXGI.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct2D1.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.XInput.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.RawInput.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D9.xml
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\GameplayScreen.xml
