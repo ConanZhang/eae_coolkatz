@@ -43,7 +43,7 @@ namespace eae_koolcatz
             SimView = Matrix.Identity;
             View = Matrix.Identity;
 
-            _translateCenter = new Vector2(ConvertUnits.ToSimUnits(_graphics.Viewport.Width) / 2.0f, ConvertUnits.ToSimUnits(_graphics.Viewport.Height) / 2.0f);
+            _translateCenter = new Vector2(0.0f, 0.0f);
 
             ResetCamera();
         }

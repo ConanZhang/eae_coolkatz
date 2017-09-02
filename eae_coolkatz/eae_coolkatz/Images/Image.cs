@@ -193,5 +193,11 @@ namespace eae_coolkatz.Images
             Origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
             spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
         }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            Vector2 test = new Vector2(Texture.Width/2, Texture.Height/2);
+            spriteBatch.Draw(Texture, position + Origin, SourceRect, Color.White * Alpha, 0.0f, test, Scale, SpriteEffects.None, 0.0f);
+        }
     }
 }

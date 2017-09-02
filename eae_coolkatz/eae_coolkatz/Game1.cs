@@ -71,6 +71,10 @@ namespace eae_coolkatz
         {
             ScreenManager.Instance.Update(gameTime);
 
+            if(InputManager.Instance.KeyPressed(Keys.Escape))
+            {
+                Exit();
+            }
             switch(gameStateManager.GameState)
             {
                 case GameStates.Menu:

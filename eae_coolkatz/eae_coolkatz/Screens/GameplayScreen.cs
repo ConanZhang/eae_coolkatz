@@ -90,11 +90,9 @@ namespace eae_coolkatz.Screens
             box.Position = ConvertUnits.ToSimUnits(0, 0);
             box.IsStatic = false;
             //box.CreateFixture(chassis);
-            /*
-            Image.Origin = CalculateOrigin(body);
-            camera.TrackingBody = body;
-            camera.EnableTracking = true;
-            */
+            //truck.Origin = CalculateOrigin(body);
+            //camera.TrackingBody = body;
+            //camera.EnableTracking = true;
             Console.WriteLine(ScreenManager.Instance.GraphicsDevice.Viewport.Width);
             Console.WriteLine(ScreenManager.Instance.GraphicsDevice.Viewport.Height);
         }
@@ -157,7 +155,7 @@ namespace eae_coolkatz.Screens
         {
             background.Draw(spriteBatch);
             //spriteBatch.Draw(truck.Texture, truckRect, null, Color.White, body.Rotation, body.Position, SpriteEffects.None, 0f);
-            spriteBatch.Draw(truck.Texture, ConvertUnits.ToDisplayUnits(box.Position), Color.White);
+            truck.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(box.Position));
             spriteBatch.End();
             spriteBatch.Begin();
             debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
