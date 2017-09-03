@@ -6,4 +6,7 @@
   <truck>
     <Path>GameplayScreen/angel</Path>
   </truck>
+  <tire>
+    <Path>GameplayScreen/tire</Path>
+  </tire>
 </GameplayScreen>

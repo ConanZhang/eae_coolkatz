@@ -27,17 +27,22 @@ namespace eae_coolkatz.Screens
         private World world;
         public Image background;
         public Image truck;
+        public Image tire;
         public Rectangle truckRect;
         DebugViewXNA debug;
 
-        [XmlIgnore]
-        public Body _wheelBack;
-        [XmlIgnore]
-        public Body _wheelFront;
-        [XmlIgnore]
-        public WheelJoint _springBack;
-        [XmlIgnore]
-        public WheelJoint _springFront;
+        private float _acceleration;
+
+        //[XmlIgnore]
+        Body _wheelBack;
+        //[XmlIgnore]
+        Body _wheelFront;
+        //[XmlIgnore]
+        WheelJoint _springBack;
+        //[XmlIgnore]
+        WheelJoint _springFront;
+
+        const float MaxSpeed = 10.0f;
 
         //InputManager input = new InputManager();
 
@@ -47,6 +52,7 @@ namespace eae_coolkatz.Screens
             base.LoadContent();
             background.LoadContent();
             truck.LoadContent();
+            tire.LoadContent();
 
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
 
@@ -67,29 +73,68 @@ namespace eae_coolkatz.Screens
                 debug.LoadContent(ScreenManager.Instance.GraphicsDevice, ScreenManager.Instance.Content);
             }
 
-            body = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(1920f), ConvertUnits.ToSimUnits(70f), 10f);
+            body = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(19200f), ConvertUnits.ToSimUnits(70f), 10f);
             body.Position = ConvertUnits.ToSimUnits(960, 1080-35);
             //body.Position = ConvertUnits.ToDisplayUnits(0, 1920-35);
             body.IsStatic = true;
             body.Restitution = 0.2f;
             body.Friction = 0.2f;
 
-            /*Vertices vertices = new Vertices(4);
-            vertices.Add(new Vector2(-2.5f, 0.08f));
-            vertices.Add(new Vector2(-2.375f, -0.46f));
-            vertices.Add(new Vector2(-0.58f, -0.92f));
-            vertices.Add(new Vector2(0.46f, -0.92f));*/
+            Vertices vertices = new Vertices(4);
+            //vertices.Add(new Vector2(0.0f, 0.20f));
+            //vertices.Add(new Vector2(-2.375f, -0.46f));
+            //vertices.Add(new Vector2(-0.58f, -0.92f));
+            //vertices.Add(new Vector2(0.46f, -0.92f));
 
-            //PolygonShape chassis = new PolygonShape(, 2);
+            vertices.Add(ConvertUnits.ToSimUnits(-60, 0));
+            vertices.Add(ConvertUnits.ToSimUnits(-60, 25));
+            vertices.Add(ConvertUnits.ToSimUnits(40, 25));
+            vertices.Add(ConvertUnits.ToSimUnits(40, 0));
+
+            PolygonShape chassis = new PolygonShape(vertices, 2);
             CircleShape wheelShape = new CircleShape(0.5f, 0.8f);
 
-            box = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(150), ConvertUnits.ToSimUnits(100), 10f, new Point(30, 30));
+            //box = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(150), ConvertUnits.ToSimUnits(100), 10f, new Point(30, 30));
+            //box.BodyType = BodyType.Dynamic;
+            //box.Restitution = 0.2f;
+            //box.Friction = 0.2f;
+            //box.Position = ConvertUnits.ToSimUnits(0, 0);
+            //box.IsStatic = false;
+
+            box = new Body(world);
             box.BodyType = BodyType.Dynamic;
-            box.Restitution = 0.2f;
-            box.Friction = 0.2f;
-            box.Position = ConvertUnits.ToSimUnits(0, 0);
-            box.IsStatic = false;
-            //box.CreateFixture(chassis);
+            box.Position = new Vector2(0.0f, -1.0f);
+            box.CreateFixture(chassis);
+
+            _wheelBack = new Body(world);
+            _wheelBack.BodyType = BodyType.Dynamic;
+            _wheelBack.Position = new Vector2(-1.709f, -0.78f);
+            _wheelBack.CreateFixture(wheelShape);
+            _wheelBack.Friction = 0.2f;
+
+            wheelShape.Density = 1;
+            _wheelFront = new Body(world);
+            _wheelFront.BodyType = BodyType.Dynamic;
+            _wheelFront.Position = new Vector2(1.54f, -0.8f);
+            _wheelFront.CreateFixture(wheelShape);
+
+            Vector2 axis = new Vector2(0.0f, -1.2f);
+            _springBack = new WheelJoint(box, _wheelBack, _wheelBack.Position, axis, true);
+            _springBack.MotorSpeed = 0.0f;
+            _springBack.MaxMotorTorque = 20.0f;
+            _springBack.MotorEnabled = true;
+            _springBack.Frequency = 4.0f;
+            _springBack.DampingRatio = 0.7f;
+            world.AddJoint(_springBack);
+
+            _springFront = new WheelJoint(box, _wheelFront, _wheelFront.Position, axis, true);
+            _springFront.MotorSpeed = 0.0f;
+            _springFront.MaxMotorTorque = 10.0f;
+            _springFront.MotorEnabled = false;
+            _springFront.Frequency = 4.0f;
+            _springFront.DampingRatio = 0.7f;
+            world.AddJoint(_springFront);
+
             //truck.Origin = CalculateOrigin(body);
             //camera.TrackingBody = body;
             //camera.EnableTracking = true;
@@ -102,6 +147,7 @@ namespace eae_coolkatz.Screens
             base.UnloadContent();
             background.UnloadContent();
             truck.UnloadContent();
+            tire.UnloadContent();
         }
 
         public override void Update(GameTime gameTime)
@@ -124,26 +170,29 @@ namespace eae_coolkatz.Screens
             //if (state.IsKeyDown(Keys.Escape))
             //    Exit();
 
-            // Move our sprite based on arrow keys being pressed:
-
-            if (InputManager.Instance.KeyDown(Keys.Right))
-                box.LinearVelocity += Vector2.UnitX;
-            if (InputManager.Instance.KeyDown(Keys.Left))
-                box.LinearVelocity -= Vector2.UnitX;
-            if (InputManager.Instance.KeyPressed(Keys.Up))
-                box.LinearVelocity += Vector2.UnitY * 25;
-
-            if (Vector2.Dot(box.LinearVelocity,Vector2.UnitX) > 5 || Vector2.Dot(box.LinearVelocity, Vector2.UnitX) < -5)
+            _springBack.MotorSpeed = Math.Sign(_acceleration) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_acceleration));
+            if (Math.Abs(_springBack.MotorSpeed) < MaxSpeed * 0.06f)
             {
-                var direction = Vector2.Normalize(box.LinearVelocity);
-                box.LinearVelocity = direction * 5;
+                _springBack.MotorEnabled = false;
+            }
+            else
+            {
+                _springBack.MotorEnabled = true;
             }
 
-            
-
+            // Move our sprite based on arrow keys being pressed:
+            if (InputManager.Instance.KeyDown(Keys.Right))
+                _acceleration = Math.Min(_acceleration + (float)(5.0 * gameTime.ElapsedGameTime.TotalSeconds), 1f);
+            else if (InputManager.Instance.KeyDown(Keys.Left))
+                _acceleration = Math.Max(_acceleration - (float)(5.0 * gameTime.ElapsedGameTime.TotalSeconds), -1f);
+            else
+                _acceleration -= Math.Sign(_acceleration) * (float)(5.0 * gameTime.ElapsedGameTime.TotalSeconds);
+            //if (InputManager.Instance.KeyPressed(Keys.Up))
+            //    box.LinearVelocity += Vector2.UnitY * 25;
 
             background.Update(gameTime);
             truck.Update(gameTime);
+            tire.Update(gameTime);
             camera.Update(gameTime);
             //input.Update();
             base.Update(gameTime);
