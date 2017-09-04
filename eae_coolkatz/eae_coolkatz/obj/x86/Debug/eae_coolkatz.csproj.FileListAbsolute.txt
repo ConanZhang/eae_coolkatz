@@ -75,9 +75,11 @@ C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkat
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.pdb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Font.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\GameplayScreen.xml
-C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\angel.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.dll
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.pdb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
-C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\tire.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTire.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTruck.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTruck.xnb

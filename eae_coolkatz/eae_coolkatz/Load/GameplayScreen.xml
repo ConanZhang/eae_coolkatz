@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <GameplayScreen>
   <background>
-    <Path>GameplayScreen/arena</Path>
+    <Path>GameplayScreen/Arena</Path>
   </background>
-  <truck>
-    <Path>GameplayScreen/angel</Path>
-  </truck>
-  <tire>
-    <Path>GameplayScreen/tire</Path>
-  </tire>
+  <truckAngel>
+    <Path>GameplayScreen/AngelTruck</Path>
+  </truckAngel>
+  <tireAngel>
+    <Path>GameplayScreen/AngelTire</Path>
+  </tireAngel>
+  <truckDemon>
+    <Path>GameplayScreen/DemonTruck</Path>
+  </truckDemon>
+  <tireDemon>
+    <Path>GameplayScreen/DemonTire</Path>
+  </tireDemon>
 </GameplayScreen>

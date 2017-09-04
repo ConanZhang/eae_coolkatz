@@ -8,8 +8,10 @@
     <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
     <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
     <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/angel.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/arena.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/tire.png</File>
+    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTire.png</File>
+    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTruck.png</File>
+    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/Arena.png</File>
+    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTire.png</File>
+    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTruck.png</File>
   </SourceFiles>
 </SourceFileCollection>
