@@ -40,11 +40,6 @@ C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkat
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\Menus\Tutorial.xml
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\ScreenManager.xml
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Load\SplashScreen.xml
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Fonts\Arial.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\angel.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\eae_coolkatz.exe
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\eae_coolkatz.pdb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\FarseerPhysics MonoGame.dll
@@ -78,7 +73,6 @@ C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.dll
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\DebugView MonoGame.pdb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTire.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTruck.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
@@ -132,3 +126,13 @@ C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Fonts\Arial.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\angel.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTire.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTruck.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTruck.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
