@@ -17,6 +17,8 @@ namespace eae_coolkatz.Screens
         {
             base.LoadContent();
             Image.Texture = content.Load<Texture2D>("GameplayScreen/AngelVictoryCard");
+            Image.Effects = "SpriteSheetEffect";
+            Image.IsActive = true;
             Image.LoadContent();
         }
 
