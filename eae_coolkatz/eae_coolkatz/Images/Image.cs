@@ -28,6 +28,7 @@ namespace eae_coolkatz.Images
         public string Effects;
 
         public FadeEffect FadeEffect;
+        public SpriteSheetEffect SpriteSheetEffect;
 
         public bool IsActive;
         public Image()
@@ -157,6 +158,7 @@ namespace eae_coolkatz.Images
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
 
             SetEffect<FadeEffect>(ref FadeEffect);
+            SetEffect<SpriteSheetEffect>(ref SpriteSheetEffect);
             
             if(Effects != string.Empty)
             {
