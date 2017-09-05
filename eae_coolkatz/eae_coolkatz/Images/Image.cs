@@ -196,10 +196,16 @@ namespace eae_coolkatz.Images
             spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, bool flip)
         {
             Vector2 test = new Vector2(Texture.Width/2, Texture.Height/2);
-            spriteBatch.Draw(Texture, position + Origin, SourceRect, Color.White * Alpha, 0.0f, test, Scale, SpriteEffects.None, 0.0f);
+
+            if(!flip)
+                spriteBatch.Draw(Texture, position + Origin, SourceRect, Color.White * Alpha, rotation, test, Scale, SpriteEffects.None, 0.0f);
+
+            else
+                spriteBatch.Draw(Texture, position + Origin, SourceRect, Color.White * Alpha, rotation, test, Scale, SpriteEffects.FlipHorizontally, 0.0f);
+
         }
     }
 }
