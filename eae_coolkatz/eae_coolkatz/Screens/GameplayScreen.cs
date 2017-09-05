@@ -46,6 +46,8 @@ namespace eae_coolkatz.Screens
 
         bool rearInTheAirAngel = false;
         bool frontInTheAirAngel = false;
+        bool angelCrash = false;
+        bool angelFlipped = false;
 
         //Demon Truck Stuff
         private Body truckDemonCollisionBox;
@@ -60,10 +62,18 @@ namespace eae_coolkatz.Screens
 
         bool rearInTheAirDemon = false;
         bool frontInTheAirDemon = false;
+        bool demonCrash = false;
+        bool demonFlipped = false;
 
-        const float MaxSpeed = 20.0f;
+        const float MaxSpeed = 30.0f;
         private float _accelerationAngel;
         private float _accelerationDemon;
+
+        const float _respawnDelayDemon = 2; // seconds
+        float _remainingDelayDemon = _respawnDelayDemon;
+
+        const float _respawnDelayAngel = 2; // seconds
+        float _remainingDelayAngel = _respawnDelayAngel;
 
         public override void LoadContent()
         {
@@ -105,9 +115,19 @@ namespace eae_coolkatz.Screens
 
             {
                 Vertices terrain = new Vertices();
-                terrain.Add(ConvertUnits.ToSimUnits(0, 1010));
-                //terrain.Add(ConvertUnits.ToSimUnits(960, 880));
-                terrain.Add(ConvertUnits.ToSimUnits(1920, 1010));
+                terrain.Add(ConvertUnits.ToSimUnits(0, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(200, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(400, 870));
+                terrain.Add(ConvertUnits.ToSimUnits(600, 890));
+                terrain.Add(ConvertUnits.ToSimUnits(800, 875));
+                terrain.Add(ConvertUnits.ToSimUnits(1000, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(1200, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(1400, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(1600, 885));
+                terrain.Add(ConvertUnits.ToSimUnits(1800, 875));
+                //terrain.Add(ConvertUnits.ToSimUnits(20, 890));
+                //terrain.Add(ConvertUnits.ToSimUnits(20, 890));
+                terrain.Add(ConvertUnits.ToSimUnits(1920, 885));
 
                 for (int i = 0; i < terrain.Count - 1; ++i)
                 {
@@ -149,14 +169,14 @@ namespace eae_coolkatz.Screens
             _wheelBackDemon.BodyType = BodyType.Dynamic;
             _wheelBackDemon.Position = new Vector2(0.6f, -0.65f);
             _wheelBackDemon.CreateFixture(wheelShape);
-            _wheelBackDemon.Friction = 1.8f;
+            _wheelBackDemon.Friction = 0.8f;
 
             wheelShape.Density = 1;
             _wheelFrontDemon = new Body(world);
             _wheelFrontDemon.BodyType = BodyType.Dynamic;
             _wheelFrontDemon.Position = new Vector2(1.2f, -0.65f);
             _wheelFrontDemon.CreateFixture(wheelShape);
-            _wheelFrontDemon.Friction = 1.8f;
+            _wheelFrontDemon.Friction = 0.8f;
 
             Vector2 axisDemon = new Vector2(0.0f, -1.2f);
             _springBackDemon = new WheelJoint(truckDemonCollisionBox, _wheelBackDemon, _wheelBackDemon.Position, axisDemon, true);
@@ -193,14 +213,14 @@ namespace eae_coolkatz.Screens
             _wheelBackAngel.BodyType = BodyType.Dynamic;
             _wheelBackAngel.Position = new Vector2(17.90f, -0.65f);
             _wheelBackAngel.CreateFixture(wheelShape);
-            _wheelBackAngel.Friction = 1.8f;
+            _wheelBackAngel.Friction = 0.8f;
 
             wheelShape.Density = 1;
             _wheelFrontAngel = new Body(world);
             _wheelFrontAngel.BodyType = BodyType.Dynamic;
             _wheelFrontAngel.Position = new Vector2(18.50f, -0.65f);
             _wheelFrontAngel.CreateFixture(wheelShape);
-            _wheelFrontAngel.Friction = 1.8f;
+            _wheelFrontAngel.Friction = 0.8f;
 
             Vector2 axisAngel = new Vector2(0.0f, -1.2f);
             _springBackAngel = new WheelJoint(truckAngelCollisionBox, _wheelBackAngel, _wheelBackAngel.Position, axisAngel, true);
@@ -281,6 +301,80 @@ namespace eae_coolkatz.Screens
             return true;
         }
 
+        bool FlipCheck_Demon(Fixture a, Fixture b, Contact contact)
+        {
+            if (b.Body == floor)
+            {
+                //Console.WriteLine("\nDEBUG2");
+                demonCrash = true;
+                demonFlipped = true;
+            }
+            return true;
+        }
+
+        void StillFlipped_Demon(Fixture a, Fixture b)
+        {
+            //Console.WriteLine("\nDEBUG3");
+            if(b.Body == floor)
+            {
+                _remainingDelayDemon = _respawnDelayDemon;
+                demonFlipped = false;
+                demonCrash = false;
+            }
+        }
+
+        void Reset_Demon()
+        {
+            Console.WriteLine("\nDEBUG4");
+            truckDemonCollisionBox.Position = new Vector2(1.1f, -1.0f);
+            truckDemonCollisionBox.Rotation = 0.0f;
+            truckDemonCollisionBox.LinearVelocity = new Vector2(0, 0);
+            truckDemonCollisionBox.AngularVelocity = 0f;
+
+            _wheelBackDemon.Position = new Vector2(0.6f, -0.65f);
+            _wheelFrontDemon.Position = new Vector2(1.2f, -0.65f);
+
+            demonFlipped = false;
+            demonCrash = false;
+            _remainingDelayDemon = _respawnDelayDemon;
+        }
+
+        bool FlipCheck_Angel(Fixture a, Fixture b, Contact contact)
+        {
+            if (b.Body == floor)
+            {
+                angelCrash = true;
+                angelFlipped = true;
+            }
+            return true;
+        }
+
+        void StillFlipped_Angel(Fixture a, Fixture b)
+        {
+            if(b.Body == floor)
+            {
+                _remainingDelayAngel = _respawnDelayAngel;
+                angelFlipped = false;
+                angelCrash = false;
+            }
+        }
+
+        void Reset_Angel()
+        {
+            truckAngelCollisionBox.Position = new Vector2(18.0f, -1.0f);
+            truckAngelCollisionBox.Rotation = 0.0f;
+            truckAngelCollisionBox.LinearVelocity = new Vector2(0, 0);
+            truckAngelCollisionBox.AngularVelocity = 0f;
+
+            _wheelBackAngel.Position = new Vector2(17.90f, -0.65f);
+
+            _wheelFrontAngel.Position = new Vector2(18.50f, -0.65f);
+
+            angelFlipped = false;
+            angelCrash = false;
+            _remainingDelayAngel = _respawnDelayAngel;
+        }
+
         public override void Update(GameTime gameTime)
         {
             world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f, (1f / 30f)));
@@ -289,6 +383,9 @@ namespace eae_coolkatz.Screens
             _wheelFrontAngel.OnCollision += new OnCollisionEventHandler(Front_OnCollisionAngel);
             _wheelBackAngel.OnSeparation += new OnSeparationEventHandler(Rear_OnSeperationAngel);
             _wheelFrontAngel.OnSeparation += new OnSeparationEventHandler(Front_OnSeperationAngel);
+
+            truckAngelCollisionBox.OnCollision += new OnCollisionEventHandler(FlipCheck_Angel);
+            truckAngelCollisionBox.OnSeparation += new OnSeparationEventHandler(StillFlipped_Angel);
 
             _springBackAngel.MotorSpeed = Math.Sign(_accelerationAngel) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationAngel));
             _springFrontAngel.MotorSpeed = Math.Sign(_accelerationAngel) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationAngel));
@@ -308,7 +405,7 @@ namespace eae_coolkatz.Screens
             {
                 if (frontInTheAirAngel && rearInTheAirAngel)
                 {
-                    truckAngelCollisionBox.ApplyAngularImpulse(0.01f);
+                    truckAngelCollisionBox.ApplyAngularImpulse(0.02f);
                 }
                 else
                 {
@@ -321,7 +418,7 @@ namespace eae_coolkatz.Screens
             {
                 if (frontInTheAirAngel && rearInTheAirAngel)
                 {
-                    truckAngelCollisionBox.ApplyAngularImpulse(-0.01f);
+                    truckAngelCollisionBox.ApplyAngularImpulse(-0.02f);
                 }
                 else
                 {
@@ -330,15 +427,32 @@ namespace eae_coolkatz.Screens
                     _springFrontAngel.MotorEnabled = true;
                 }
             }
-            else if (InputManager.Instance.KeyPressed(Keys.Down))
-                _accelerationAngel = 0f;
+            else if (InputManager.Instance.KeyDown(Keys.Down))
+            {
+                _springFrontAngel.MotorEnabled = true;
+                _springBackAngel.MotorEnabled = true;
+                _springBackAngel.MotorSpeed = 0f;
+                _springFrontAngel.MotorSpeed = 0f;
+            }
             else
-                _accelerationAngel -= Math.Sign(_accelerationAngel) * (float)(5.0 * gameTime.ElapsedGameTime.TotalSeconds);
+                _accelerationAngel = 0f;
 
             if (InputManager.Instance.KeyPressed(Keys.Up))
             {
-                if (!rearInTheAirAngel && !frontInTheAirAngel)
-                    truckAngelCollisionBox.ApplyForce(new Vector2(0, -250), truckAngelCollisionBox.Position + new Vector2(0.14f, 0f));
+                if (!rearInTheAirAngel || !frontInTheAirAngel)
+                    truckAngelCollisionBox.ApplyForce(new Vector2(0, -500), truckAngelCollisionBox.Position + new Vector2(0.15f, 0f));
+            }
+
+            if (angelCrash)
+            {
+                var timer = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                _remainingDelayAngel -= timer;
+
+                if (_remainingDelayAngel <= 0 && angelFlipped)
+                {
+                    Reset_Angel();
+                }
             }
 
             _wheelBackDemon.OnCollision += new OnCollisionEventHandler(Rear_OnCollisionDemon);
@@ -346,8 +460,12 @@ namespace eae_coolkatz.Screens
             _wheelBackDemon.OnSeparation += new OnSeparationEventHandler(Rear_OnSeperationDemon);
             _wheelFrontDemon.OnSeparation += new OnSeparationEventHandler(Front_OnSeperationDemon);
 
+            truckDemonCollisionBox.OnCollision += new OnCollisionEventHandler(FlipCheck_Demon);
+            truckDemonCollisionBox.OnSeparation += new OnSeparationEventHandler(StillFlipped_Demon);
+
             _springBackDemon.MotorSpeed = Math.Sign(_accelerationDemon) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationDemon));
             _springFrontDemon.MotorSpeed = Math.Sign(_accelerationDemon) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationDemon));
+
             if (Math.Abs(_springBackDemon.MotorSpeed) < MaxSpeed * 0.06f || (Math.Abs(_springFrontDemon.MotorSpeed) < MaxSpeed * 0.06f))
             {
                 _springBackDemon.MotorEnabled = false;
@@ -364,7 +482,7 @@ namespace eae_coolkatz.Screens
             {
                 if (frontInTheAirDemon && rearInTheAirDemon)
                 {
-                    truckDemonCollisionBox.ApplyAngularImpulse(0.01f);
+                    truckDemonCollisionBox.ApplyAngularImpulse(0.02f);
                 }
                 else
                 {
@@ -377,7 +495,7 @@ namespace eae_coolkatz.Screens
             {
                 if (frontInTheAirDemon && rearInTheAirDemon)
                 {
-                    truckDemonCollisionBox.ApplyAngularImpulse(-0.01f);
+                    truckDemonCollisionBox.ApplyAngularImpulse(-0.02f);
                 }
                 else
                 {
@@ -386,15 +504,34 @@ namespace eae_coolkatz.Screens
                     _springFrontDemon.MotorEnabled = true;
                 }
             }
-            else if (InputManager.Instance.KeyPressed(Keys.S))
-                _accelerationDemon = 0f;
+            else if (InputManager.Instance.KeyDown(Keys.S))
+            {
+                _springFrontDemon.MotorEnabled = true;
+                _springBackDemon.MotorEnabled = true;
+                _springBackDemon.MotorSpeed = 0f;
+                _springFrontDemon.MotorSpeed = 0f;
+            }
             else
-                _accelerationDemon -= Math.Sign(_accelerationDemon) * (float)(5.0 * gameTime.ElapsedGameTime.TotalSeconds);
+                _accelerationDemon = 0f;
 
             if (InputManager.Instance.KeyPressed(Keys.W))
             {
-                if (!rearInTheAirDemon && !frontInTheAirDemon)
-                    truckDemonCollisionBox.ApplyForce(new Vector2(0, -250), truckDemonCollisionBox.Position + new Vector2(-0.175f, 0f));
+                if (!rearInTheAirDemon || !frontInTheAirDemon)
+                    truckDemonCollisionBox.ApplyForce(new Vector2(0, -500), truckDemonCollisionBox.Position + new Vector2(-0.175f, 0f));
+            }
+
+            if (demonCrash)
+            {
+                //Console.WriteLine("\nDEBUG1");
+
+                var timer = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                _remainingDelayDemon -= timer;
+
+                if (_remainingDelayDemon <= 0 && demonFlipped)
+                {
+                    Reset_Demon();
+                }
             }
 
             background.Update(gameTime);
@@ -421,7 +558,7 @@ namespace eae_coolkatz.Screens
             spriteBatch.End();
 
             spriteBatch.Begin();
-            //debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
             base.Draw(spriteBatch);
         }
 
