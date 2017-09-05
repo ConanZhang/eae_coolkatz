@@ -17,6 +17,7 @@ using FarseerPhysics.DebugView;
 using eae_koolcatz;
 using FarseerPhysics.Factories;
 using System.Xml.Serialization;
+using eae_coolkatz.Gameplay;
 
 namespace eae_coolkatz.Screens
 {
@@ -86,6 +87,7 @@ namespace eae_coolkatz.Screens
         float _angelFlipTimer = _flipTimeAngel;
         bool angelFlick = false;
 
+        public Goal Goal;
         public override void LoadContent()
         {
             base.LoadContent();
@@ -96,6 +98,7 @@ namespace eae_coolkatz.Screens
 
             truckDemon.LoadContent();
             tireDemon.LoadContent();
+            Goal.LoadContent();
 
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
 
@@ -261,6 +264,8 @@ namespace eae_coolkatz.Screens
 
             truckDemon.UnloadContent();
             tireDemon.UnloadContent();
+
+            Goal.UnloadContent();
         }
 
         void Rear_OnSeperationAngel(Fixture a, Fixture b)
@@ -488,6 +493,8 @@ namespace eae_coolkatz.Screens
 
                 _remainingDelayAngel -= timer;
 
+        {
+        }
                 if (_remainingDelayAngel <= 0 && angelFlipped)
                 {
                     Reset_Angel();
@@ -601,6 +608,8 @@ namespace eae_coolkatz.Screens
             truckDemon.Update(gameTime);
             tireDemon.Update(gameTime);
             camera.Update(gameTime);
+
+            Goal.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -616,10 +625,12 @@ namespace eae_coolkatz.Screens
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackDemon.Position), _wheelBackDemon.Rotation, false);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false);
 
+            Goal.Draw(spriteBatch);
+
             spriteBatch.End();
 
             spriteBatch.Begin();
-            //debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
             base.Draw(spriteBatch);
         }
 

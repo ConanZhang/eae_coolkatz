@@ -15,4 +15,10 @@
   <tireDemon>
     <Path>GameplayScreen/DemonTire</Path>
   </tireDemon>
+  <Goal>
+   <Image>
+      <Path>GameplayScreen/AngelVictoryCard</Path>
+      <Effects>SpriteSheetEffect</Effects>
+    </Image>
+  </Goal>
 </GameplayScreen>

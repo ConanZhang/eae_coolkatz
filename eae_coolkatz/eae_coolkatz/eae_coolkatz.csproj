@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Camera2D.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay\Goal.cs" />
     <Compile Include="Images\FadeEffect.cs" />
     <Compile Include="Images\ImageEffect.cs" />
     <Compile Include="Images\SpriteSheetEffect.cs" />
@@ -69,6 +70,7 @@
   <ItemGroup>
     <Content Include="Content\GameplayScreen\AngelTire.png" />
     <Content Include="Content\GameplayScreen\AngelTruck.png" />
+    <Content Include="Content\GameplayScreen\AngelVictoryCard.png" />
     <Content Include="Content\GameplayScreen\arena.png" />
     <Content Include="Content\GameplayScreen\DemonTire.png" />
     <Content Include="Content\GameplayScreen\DemonTruck.png" />
