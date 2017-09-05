@@ -118,11 +118,6 @@ C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\Arena.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTruck.xnb
-C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Images\angel_sprite_test_1.xnb
-C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Images\angel_sprite_tire_test_1.xnb
-C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Images\arena_full_prototype_2.xnb
-C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Images\Demon_sprite_test_1.xnb
-C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Images\Demon_sprite_tire_test_1.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
@@ -136,3 +131,5 @@ C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkat
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
+C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
+C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb

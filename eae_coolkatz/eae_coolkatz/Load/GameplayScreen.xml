@@ -15,4 +15,10 @@
   <tireDemon>
     <Path>GameplayScreen/DemonTire</Path>
   </tireDemon>
+  <sacrificeSpriteTemp>
+    <Path>GameplayScreen/SacrificeFall</Path>
+  </sacrificeSpriteTemp>
+  <sacrificeSprite>
+    <Path>GameplayScreen/SacrificeMove</Path>
+  </sacrificeSprite>
 </GameplayScreen>

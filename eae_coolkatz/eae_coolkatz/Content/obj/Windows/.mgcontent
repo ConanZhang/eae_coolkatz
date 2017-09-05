@@ -4,14 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Fonts/Arial.spritefont</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTire.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTruck.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTire.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTruck.png</File>
-    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/Arena.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Fonts/Arial.spritefont</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTire.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTruck.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTire.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTruck.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/Arena.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/SacrificeFall.png</File>
+    <File>C:/Users/u1119356/Documents/GIT Projects/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/SacrificeMove.png</File>
   </SourceFiles>
 </SourceFileCollection>
