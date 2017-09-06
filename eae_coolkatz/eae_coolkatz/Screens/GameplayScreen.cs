@@ -20,22 +20,28 @@ using System.Xml.Serialization;
 
 namespace eae_coolkatz.Screens
 {
+    enum SacrificeState : int {Unpossessed = 0, Dropped, Possessed};
+
+    enum TruckState : int {Default = 0, HasRightOfWay, Dead};
+
+    enum RightOfWay: int {Default = 0, Demon, Angel};
+
     public class GameplayScreen : GameScreen
     {
         public Image sacrificeSprite;
-        Rectangle [] sacrificeAnimation = new Rectangle[2] { new Rectangle(0, 0, 120, 60), new Rectangle(120, 0, 120, 60) };
+        Rectangle [] sacrificeAnimation = new Rectangle[3] { new Rectangle(0, 0, 110, 84), new Rectangle(110, 0, 110, 84), new Rectangle(220, 0, 110, 84)};
         int sacrificeFrameNum = 0;
-        int sacrificeState = 0;
+        SacrificeState sacrificeState = SacrificeState.Unpossessed;
 
         Rectangle[] angelTruckAnimation = new Rectangle[9] { new Rectangle(0, 0, 350, 200), new Rectangle(350, 0, 350, 200), new Rectangle(700, 0, 350, 200), new Rectangle(1050, 0, 350, 200), new Rectangle(1400, 0, 350, 200), new Rectangle(0, 200, 350, 200), new Rectangle(350, 200, 350, 200), new Rectangle(700, 200, 350, 200), new Rectangle(1050, 200, 350, 200) };
         int angelTruckFrameNum = 0;
-        int angelState = 0;
+        TruckState angelState = TruckState.Default;
 
         Rectangle[] demonTruckAnimation = new Rectangle[9] { new Rectangle(0, 0, 350, 200), new Rectangle(350, 0, 350, 200), new Rectangle(700, 0, 350, 200), new Rectangle(1050, 0, 350, 200), new Rectangle(1400, 0, 350, 200), new Rectangle(0, 200, 350, 200), new Rectangle(350, 200, 350, 200), new Rectangle(700, 200, 350, 200), new Rectangle(1050, 200, 350, 200) };
         int demonTruckFrameNum = 0;
-        int demonState = 0;
+        TruckState demonState = TruckState.Default;
 
-        int rightOfWay = 0;
+        RightOfWay rightOfWay = RightOfWay.Default;
 
         private World world;
 
@@ -362,9 +368,11 @@ namespace eae_coolkatz.Screens
 
         void Reset_Demon()
         {
-            demonState = 0;
+            demonState = TruckState.Default;
 
-            //Console.WriteLine("\nDEBUG4");
+            if (rightOfWay == RightOfWay.Demon)
+                rightOfWay = RightOfWay.Default;
+
             truckDemonCollisionBox.Position = new Vector2(3.5f, -1.0f);
             truckDemonCollisionBox.Rotation = 0.0f;
             truckDemonCollisionBox.LinearVelocity = new Vector2(0, 0);
@@ -402,8 +410,10 @@ namespace eae_coolkatz.Screens
 
         void Reset_Angel()
         {
-            angelState = 0;
-            rightOfWay = 0;
+            angelState = TruckState.Default;
+
+            if (rightOfWay == RightOfWay.Angel)
+                rightOfWay = RightOfWay.Default;
 
             truckAngelCollisionBox.Position = new Vector2(16.7f, -1.0f);
             truckAngelCollisionBox.Rotation = 0.0f;
@@ -422,16 +432,18 @@ namespace eae_coolkatz.Screens
 
         bool Sacrifice_Possesion(Fixture a, Fixture b, Contact contact)
         {
-            if (b.Body == truckDemonCollisionBox)
+            if (b.Body == truckDemonCollisionBox && sacrificeState == SacrificeState.Unpossessed)
             {
-                rightOfWay = 1;
-                demonState = 1;
+                rightOfWay = RightOfWay.Demon;
+                demonState = TruckState.HasRightOfWay;
+                sacrificeState = SacrificeState.Possessed;
             }
 
-            else if(b.Body == truckAngelCollisionBox)
+            else if(b.Body == truckAngelCollisionBox && sacrificeState == SacrificeState.Unpossessed)
             {
-                rightOfWay = 2;
-                angelState = 1;
+                rightOfWay = RightOfWay.Angel;
+                angelState = TruckState.HasRightOfWay;
+                sacrificeState = SacrificeState.Possessed;
             }
             return true;
         }
@@ -539,10 +551,10 @@ namespace eae_coolkatz.Screens
 
                 if (_remainingDelayAngel <= 0.5f && angelFlipped)
                 {
-                    angelState = 2;
+                    angelState = TruckState.Dead;
 
-                    if (rightOfWay == 2)
-                        sacrificeState = 1;
+                    if (sacrificeState == SacrificeState.Possessed && rightOfWay == RightOfWay.Angel)
+                        sacrificeState = SacrificeState.Dropped;
 
                     if (_remainingDelayAngel <= 0 && angelFlipped)
                         Reset_Angel();
@@ -646,7 +658,11 @@ namespace eae_coolkatz.Screens
 
                 if (_remainingDelayDemon <= 0.5 && demonFlipped)
                 {
-                    demonState = 2;
+                    demonState = TruckState.Dead;
+
+                    if (sacrificeState == SacrificeState.Possessed && rightOfWay == RightOfWay.Demon)
+                        sacrificeState = SacrificeState.Dropped;
+
                     if (_remainingDelayDemon <= 0 && demonFlipped)
                         Reset_Demon();
                 }
@@ -659,25 +675,74 @@ namespace eae_coolkatz.Screens
             tireDemon.Update(gameTime);
 
             sacrificeSprite.Update(gameTime);
-            sacrificeFrameNum++;
-            if (sacrificeFrameNum/10 >= 2)
+
+            switch (sacrificeState)
             {
-                sacrificeFrameNum = 0;
+                case SacrificeState.Dropped:
+                    if (rightOfWay == RightOfWay.Angel)
+                    {
+                        sacrifice.Position = truckAngelCollisionBox.Position + new Vector2(0, -1.5f);
+                        //sacrifice.LinearVelocity = new Vector2(0, 0);
+                        sacrifice.ApplyLinearImpulse(new Vector2(0, -2f));
+                        sacrificeState = SacrificeState.Unpossessed;
+                    }
+
+                    else if (rightOfWay == RightOfWay.Demon)
+                    {
+                        sacrifice.Position = truckDemonCollisionBox.Position + new Vector2(0, -1.5f);
+                        //sacrifice.LinearVelocity = new Vector2(0, 0);
+                        sacrifice.ApplyLinearImpulse(new Vector2(0, -2f));
+                        sacrificeState = SacrificeState.Unpossessed;
+                    }
+
+                    sacrifice.IgnoreCollisionWith(truckAngelCollisionBox);
+                    sacrifice.IgnoreCollisionWith(truckDemonCollisionBox);
+                    sacrifice.IgnoreCollisionWith(_wheelBackAngel);
+                    sacrifice.IgnoreCollisionWith(_wheelFrontAngel);
+                    sacrifice.IgnoreCollisionWith(_wheelBackDemon);
+                    sacrifice.IgnoreCollisionWith(_wheelFrontDemon);
+
+                    break;
+
+                case SacrificeState.Possessed:
+                    sacrifice.IgnoreCollisionWith(truckAngelCollisionBox);
+                    sacrifice.IgnoreCollisionWith(truckDemonCollisionBox);
+                    sacrifice.IgnoreCollisionWith(_wheelBackAngel);
+                    sacrifice.IgnoreCollisionWith(_wheelFrontAngel);
+                    sacrifice.IgnoreCollisionWith(_wheelBackDemon);
+                    sacrifice.IgnoreCollisionWith(_wheelFrontDemon);
+
+                    break;
+
+                case SacrificeState.Unpossessed:
+                    sacrifice.RestoreCollisionWith(truckAngelCollisionBox);
+                    sacrifice.RestoreCollisionWith(truckDemonCollisionBox);
+                    sacrifice.RestoreCollisionWith(_wheelBackAngel);
+                    sacrifice.RestoreCollisionWith(_wheelFrontAngel);
+                    sacrifice.RestoreCollisionWith(_wheelBackDemon);
+                    sacrifice.RestoreCollisionWith(_wheelFrontDemon);
+
+                    sacrificeFrameNum++;
+                    if (sacrificeFrameNum / 10 >= 2)
+                    {
+                        sacrificeFrameNum = 0;
+                    }
+                    break;
             }
 
             switch (angelState)
             {
-                case 0:
+                case TruckState.Default:
                     angelTruckFrameNum = 0;
                     break;
-                case 1:
+                case TruckState.HasRightOfWay:
                     angelTruckFrameNum++;
                     if (angelTruckFrameNum / 10 >= 2)
                     {
                         angelTruckFrameNum = 0;
                     }
                     break;
-                case 2:
+                case TruckState.Dead:
                     angelTruckFrameNum++;
                     if (angelTruckFrameNum / 4 >= 6)
                     {
@@ -688,33 +753,23 @@ namespace eae_coolkatz.Screens
 
             switch (demonState)
             {
-                case 0:
+                case TruckState.Default:
                     demonTruckFrameNum = 0;
                     break;
-                case 1:
+                case TruckState.HasRightOfWay:
                     demonTruckFrameNum++;
                     if (demonTruckFrameNum / 10 >= 2)
                     {
                         demonTruckFrameNum = 0;
                     }
                     break;
-                case 2:
+                case TruckState.Dead:
                     demonTruckFrameNum++;
                     if (demonTruckFrameNum / 4 >= 6)
                     {
                         demonTruckFrameNum = 0;
                     }
                     break;
-            }
-
-            if (sacrificeState == 1)
-            {
-                if (rightOfWay == 2)
-                {
-                    sacrifice.Position = truckAngelCollisionBox.Position + new Vector2(0, -1.5f);
-                    sacrificeState = 0;
-                }
-                sacrifice.ApplyForce(new Vector2(0, -3f));
             }
 
             camera.Update(gameTime);
@@ -728,26 +783,26 @@ namespace eae_coolkatz.Screens
 
             switch (angelState)
             {
-                case 0:
+                case TruckState.Default:
                     truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation[0], 350f, 200f);
                     break;
-                case 1:
+                case TruckState.HasRightOfWay:
                     truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation[(angelTruckFrameNum / 10) + 1], 350f, 200f);
                     break;
-                case 2:
+                case TruckState.Dead:
                     truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation[(angelTruckFrameNum / 4) + 3], 350f, 200f);
                     break;
             }
 
             switch (demonState)
             {
-                case 0:
+                case TruckState.Default:
                     truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f, demonTruckAnimation[0], 350f, 200f);
                     break;
-                case 1:
+                case TruckState.HasRightOfWay:
                     truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f, demonTruckAnimation[(demonTruckFrameNum / 10) + 1], 350f, 200f);
                     break;
-                case 2:
+                case TruckState.Dead:
                     truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f, demonTruckAnimation[(demonTruckFrameNum / 4) + 3], 350f, 200f);
                     break;
             }
@@ -758,12 +813,21 @@ namespace eae_coolkatz.Screens
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackDemon.Position), _wheelBackDemon.Rotation, false, 2f);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false, 2f);
 
-            sacrificeSprite.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(sacrifice.Position), 0f, false, 1f, sacrificeAnimation[sacrificeFrameNum/10], 120f,60f);
-
+            switch (sacrificeState)
+            {
+                case SacrificeState.Unpossessed:
+                    sacrificeSprite.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(sacrifice.Position), 0f, false, 1f, sacrificeAnimation[(sacrificeFrameNum / 10)], 110f, 84f);
+                    break;
+                case SacrificeState.Dropped:
+                    sacrificeSprite.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(sacrifice.Position), 0f, false, 1f, sacrificeAnimation[0], 110f, 84f);
+                    break;
+                case SacrificeState.Possessed:
+                    break;
+            }
             spriteBatch.End();
 
             spriteBatch.Begin();
-            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            //debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
             base.Draw(spriteBatch);
         }
 
