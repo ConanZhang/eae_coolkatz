@@ -122,10 +122,10 @@ namespace eae_coolkatz.Screens
 
             truckDemon.LoadContent();
             tireDemon.LoadContent();
-            angelVictoryGoal = new Goal(world, new Vector2(1200, 775), true);
+            angelVictoryGoal = new Goal(world, new Vector2(3500, 775), true);
             angelVictoryGoal.LoadContent();
 
-            demonVictoryGoal = new Goal(world, new Vector2(600, 775), false);
+            demonVictoryGoal = new Goal(world, new Vector2(-1800, 775), false);
             demonVictoryGoal.LoadContent();
 
             if(debug == null)
@@ -141,7 +141,7 @@ namespace eae_coolkatz.Screens
 
             {
                 Vertices terrain = new Vertices();
-                terrain.Add(ConvertUnits.ToSimUnits(0, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(-2050, 880));
                 //terrain.Add(ConvertUnits.ToSimUnits(200, 880));
                 //terrain.Add(ConvertUnits.ToSimUnits(400, 870));
                 //terrain.Add(ConvertUnits.ToSimUnits(600, 890));
@@ -153,7 +153,7 @@ namespace eae_coolkatz.Screens
                 //terrain.Add(ConvertUnits.ToSimUnits(1800, 875));
                 ////terrain.Add(ConvertUnits.ToSimUnits(20, 890));
                 ////terrain.Add(ConvertUnits.ToSimUnits(20, 890));
-                terrain.Add(ConvertUnits.ToSimUnits(1920, 885));
+                terrain.Add(ConvertUnits.ToSimUnits(3700, 880));
 
                 for (int i = 0; i < terrain.Count - 1; ++i)
                 {
@@ -632,6 +632,8 @@ namespace eae_coolkatz.Screens
                 camera._translateCenter = new Vector2(17, 0.0f);
                 instructionAngel.IsActive = true;
                 instructionDemon.IsActive = false;
+                wallLeft.IsSensor = true;
+                wallRight.IsSensor = true;
             }
             else if(cameraTarget == CameraTarget.Demon)
             {
@@ -640,6 +642,8 @@ namespace eae_coolkatz.Screens
                 camera._translateCenter = new Vector2(3.0f, 0.0f);
                 instructionDemon.IsActive = true;
                 instructionAngel.IsActive = false;
+                wallLeft.IsSensor = true;
+                wallRight.IsSensor = true;
             }
             else
             {

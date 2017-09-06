@@ -2,6 +2,10 @@
 <GameplayScreen>
   <background>
     <Path>GameplayScreen/Arena</Path>
+    <Position>
+      <X>-2050</X>
+      <Y>0</Y>
+    </Position>
   </background>
   <truckAngel>
     <Path>GameplayScreen/AngelTruck</Path>
