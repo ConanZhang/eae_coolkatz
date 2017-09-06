@@ -258,8 +258,8 @@ namespace eae_coolkatz.Screens
             _springFrontAngel.DampingRatio = 0.7f;
             world.AddJoint(_springFrontAngel);
 
-            //camera.TrackingBody = body;
-            //camera.EnableTracking = true;
+            camera.TrackingBody = truckDemonCollisionBox;
+            camera.EnablePositionTracking = true;
         }
 
         public override void UnloadContent()
@@ -625,6 +625,8 @@ namespace eae_coolkatz.Screens
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.End();
+            spriteBatch.Begin(0, null, null, null, null, null, camera.View);
             background.Draw(spriteBatch);
 
             truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true);

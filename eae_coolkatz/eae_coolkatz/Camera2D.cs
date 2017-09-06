@@ -43,7 +43,7 @@ namespace eae_koolcatz
             SimView = Matrix.Identity;
             View = Matrix.Identity;
 
-            _translateCenter = new Vector2(0.0f, 0.0f);
+            _translateCenter = new Vector2(3.0f, 0.0f);
 
             ResetCamera();
         }
@@ -272,7 +272,7 @@ namespace eae_koolcatz
             {
                 if (_positionTracking)
                 {
-                    _targetPosition = _trackingBody.Position;
+                    _targetPosition.X = _trackingBody.Position.X;
                     if (_minPosition != _maxPosition)
                     {
                         Vector2.Clamp(ref _targetPosition, ref _minPosition, ref _maxPosition, out _targetPosition);
