@@ -17,6 +17,7 @@ using FarseerPhysics.DebugView;
 using eae_koolcatz;
 using FarseerPhysics.Factories;
 using System.Xml.Serialization;
+using eae_coolkatz.Gameplay;
 
 namespace eae_coolkatz.Screens
 {
@@ -86,16 +87,11 @@ namespace eae_coolkatz.Screens
         float _angelFlipTimer = _flipTimeAngel;
         bool angelFlick = false;
 
+        Goal angelVictoryGoal;
+        Goal demonVictoryGoal;
         public override void LoadContent()
         {
             base.LoadContent();
-            background.LoadContent();
-
-            truckAngel.LoadContent();
-            tireAngel.LoadContent();
-
-            truckDemon.LoadContent();
-            tireDemon.LoadContent();
 
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
 
@@ -107,6 +103,19 @@ namespace eae_coolkatz.Screens
             {
                 world.Clear();
             }
+
+            background.LoadContent();
+
+            truckAngel.LoadContent();
+            tireAngel.LoadContent();
+
+            truckDemon.LoadContent();
+            tireDemon.LoadContent();
+            angelVictoryGoal = new Goal(world, new Vector2(1200, 775), true);
+            angelVictoryGoal.LoadContent();
+
+            demonVictoryGoal = new Goal(world, new Vector2(600, 775), false);
+            demonVictoryGoal.LoadContent();
 
             if(debug == null)
             {
@@ -172,6 +181,7 @@ namespace eae_coolkatz.Screens
             truckDemonCollisionBox.BodyType = BodyType.Dynamic;
             truckDemonCollisionBox.Position = new Vector2(1.1f, -1.0f);
             truckDemonCollisionBox.CreateFixture(chassisDemon);
+            truckDemonCollisionBox.UserData = "demon";
 
             _wheelBackDemon = new Body(world);
             _wheelBackDemon.BodyType = BodyType.Dynamic;
@@ -216,6 +226,7 @@ namespace eae_coolkatz.Screens
             truckAngelCollisionBox.BodyType = BodyType.Dynamic;
             truckAngelCollisionBox.Position = new Vector2(17.7f, -1.0f);
             truckAngelCollisionBox.CreateFixture(chassisAngel);
+            truckAngelCollisionBox.UserData = "angel";
 
             _wheelBackAngel = new Body(world);
             _wheelBackAngel.BodyType = BodyType.Dynamic;
@@ -261,6 +272,9 @@ namespace eae_coolkatz.Screens
 
             truckDemon.UnloadContent();
             tireDemon.UnloadContent();
+
+            angelVictoryGoal.UnloadContent();
+            demonVictoryGoal.UnloadContent();
         }
 
         void Rear_OnSeperationAngel(Fixture a, Fixture b)
@@ -488,6 +502,8 @@ namespace eae_coolkatz.Screens
 
                 _remainingDelayAngel -= timer;
 
+        {
+        }
                 if (_remainingDelayAngel <= 0 && angelFlipped)
                 {
                     Reset_Angel();
@@ -601,6 +617,9 @@ namespace eae_coolkatz.Screens
             truckDemon.Update(gameTime);
             tireDemon.Update(gameTime);
             camera.Update(gameTime);
+
+            angelVictoryGoal.Update(gameTime);
+            demonVictoryGoal.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -616,10 +635,13 @@ namespace eae_coolkatz.Screens
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackDemon.Position), _wheelBackDemon.Rotation, false);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false);
 
+            angelVictoryGoal.Draw(spriteBatch);
+            demonVictoryGoal.Draw(spriteBatch);
+
             spriteBatch.End();
 
             spriteBatch.Begin();
-            //debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
             base.Draw(spriteBatch);
         }
 

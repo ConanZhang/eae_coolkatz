@@ -31,11 +31,14 @@ namespace eae_coolkatz.Images
         public SpriteSheetEffect SpriteSheetEffect;
 
         public bool IsActive;
+        public bool flipHorizontally;
+
         public Image()
         {
             Path = Text = Effects = string.Empty;
             FontName = "Fonts/Arial";
             Position = Vector2.Zero;
+            Origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
             Scale = Vector2.One;
             Alpha = 1.0f;
             SourceRect = Rectangle.Empty;
@@ -192,8 +195,26 @@ namespace eae_coolkatz.Images
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
-            spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
+            if(flipHorizontally)
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.FlipHorizontally, 0.0f);
+            }
+            else
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 _origin)
+        {
+            if(flipHorizontally)
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.FlipHorizontally, 0.0f);
+            }
+            else
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.None, 0.0f);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, bool flip)
