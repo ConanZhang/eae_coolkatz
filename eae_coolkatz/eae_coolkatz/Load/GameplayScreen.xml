@@ -2,6 +2,10 @@
 <GameplayScreen>
   <background>
     <Path>GameplayScreen/Arena</Path>
+    <Position>
+      <X>-2050</X>
+      <Y>0</Y>
+    </Position>
   </background>
   <truckAngel>
     <Path>GameplayScreen/AngelTruck</Path>
@@ -15,4 +19,10 @@
   <tireDemon>
     <Path>GameplayScreen/DemonTire</Path>
   </tireDemon>
+  <instructionAngel>
+    <Path>GameplayScreen/AngelInstruction</Path>
+  </instructionAngel>
+  <instructionDemon>
+    <Path>GameplayScreen/DemonInstruction</Path>
+  </instructionDemon>
 </GameplayScreen>
