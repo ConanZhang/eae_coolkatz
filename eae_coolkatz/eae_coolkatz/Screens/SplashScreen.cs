@@ -13,6 +13,9 @@ namespace eae_coolkatz.Screens
     {
         public Image Image;
 
+        private const float _delay = 2;
+        private float _remainingDelay = _delay;
+
         public override void LoadContent()
         {
             base.LoadContent();
@@ -30,9 +33,14 @@ namespace eae_coolkatz.Screens
             base.Update(gameTime);
             Image.Update(gameTime);
 
-            if (InputManager.Instance.KeyPressed(Keys.Enter))
+            float timer = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            _remainingDelay -= timer;
+
+            if(_remainingDelay <= 0)
             {
                 ScreenManager.Instance.ChangeScreens("TitleScreen");
+                _remainingDelay = _delay;
             }
         }
 

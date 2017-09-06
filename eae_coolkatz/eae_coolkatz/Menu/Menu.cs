@@ -73,7 +73,7 @@ namespace eae_coolkatz.Menu
                 dimensions += new Vector2(item.Image.SourceRect.Width, item.Image.SourceRect.Height);
             }
 
-            dimensions = new Vector2((ScreenManager.Instance.Dimensions.X - dimensions.X) / 2, (ScreenManager.Instance.Dimensions.Y - dimensions.Y) / 2);
+            dimensions = new Vector2((ScreenManager.Instance.Dimensions.X - dimensions.X) / 2, ((ScreenManager.Instance.Dimensions.Y - dimensions.Y) / 2) + 350) ;
 
             foreach(MenuItem item in Items)
             {
