@@ -87,18 +87,10 @@ namespace eae_coolkatz.Screens
         float _angelFlipTimer = _flipTimeAngel;
         bool angelFlick = false;
 
-        public Goal Goal;
+        Goal angelVictoryGoal;
         public override void LoadContent()
         {
             base.LoadContent();
-            background.LoadContent();
-
-            truckAngel.LoadContent();
-            tireAngel.LoadContent();
-
-            truckDemon.LoadContent();
-            tireDemon.LoadContent();
-            Goal.LoadContent();
 
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
 
@@ -110,6 +102,16 @@ namespace eae_coolkatz.Screens
             {
                 world.Clear();
             }
+
+            background.LoadContent();
+
+            truckAngel.LoadContent();
+            tireAngel.LoadContent();
+
+            truckDemon.LoadContent();
+            tireDemon.LoadContent();
+            angelVictoryGoal = new Goal(world, new Vector2(960, 540), true);
+            angelVictoryGoal.LoadContent();
 
             if(debug == null)
             {
@@ -265,7 +267,7 @@ namespace eae_coolkatz.Screens
             truckDemon.UnloadContent();
             tireDemon.UnloadContent();
 
-            Goal.UnloadContent();
+            angelVictoryGoal.UnloadContent();
         }
 
         void Rear_OnSeperationAngel(Fixture a, Fixture b)
@@ -609,7 +611,7 @@ namespace eae_coolkatz.Screens
             tireDemon.Update(gameTime);
             camera.Update(gameTime);
 
-            Goal.Update(gameTime);
+            angelVictoryGoal.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -625,7 +627,7 @@ namespace eae_coolkatz.Screens
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackDemon.Position), _wheelBackDemon.Rotation, false);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false);
 
-            Goal.Draw(spriteBatch);
+            angelVictoryGoal.Draw(spriteBatch);
 
             spriteBatch.End();
 

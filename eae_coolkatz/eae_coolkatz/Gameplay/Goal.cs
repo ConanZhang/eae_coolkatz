@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FarseerPhysics;
+using FarseerPhysics.Factories;
 
 namespace eae_coolkatz.Gameplay
 {
@@ -14,9 +16,27 @@ namespace eae_coolkatz.Gameplay
     {
         public Image Image;
         Body goalSensor;
+        private bool isAngel;
 
-        public Goal()
+        public Goal(World world, Vector2 Position, bool isAngel)
         {
+            this.isAngel = isAngel;
+            Image = new Image();
+            Image.Effects = "SpriteSheetEffect";
+            if (isAngel)
+            {
+                Image.Texture = ScreenManager.Instance.Content.Load<Texture2D>("GameplayScreen/AngelVictoryCard");
+            }
+            else
+            {
+                Image.Texture = ScreenManager.Instance.Content.Load<Texture2D>("GameplayScreen/DemonVictoryCard");
+            }
+
+
+            goalSensor = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(100), ConvertUnits.ToSimUnits(1080), 10f);
+            goalSensor.Position = ConvertUnits.ToSimUnits(Position);
+            goalSensor.IsStatic = true;
+            goalSensor.IsSensor = true;
         }
 
         public void ActivateImage()
@@ -28,7 +48,7 @@ namespace eae_coolkatz.Gameplay
         {
             Image.LoadContent();
             Image.Position = new Vector2((ScreenManager.Instance.Dimensions.X / 2), ScreenManager.Instance.Dimensions.Y / 3);
-            ActivateImage();
+            //ActivateImage();
         }
 
         public void UnloadContent()
@@ -43,7 +63,10 @@ namespace eae_coolkatz.Gameplay
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Image.Draw(spriteBatch);
+            if (Image.IsActive)
+            {
+                Image.Draw(spriteBatch, new Vector2( Image.SpriteSheetEffect.FrameWidth / 2, Image.SpriteSheetEffect.FrameHeight /2));
+            }
         }
     }
 }
