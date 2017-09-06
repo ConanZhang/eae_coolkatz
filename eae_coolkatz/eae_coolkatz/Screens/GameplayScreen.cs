@@ -22,18 +22,18 @@ namespace eae_coolkatz.Screens
 {
     public class GameplayScreen : GameScreen
     {
-        Rectangle [] angelAnimationFrames = new Rectangle [] {new Rectangle { } }
-        int sacrificeFrameNum = 0;
         public Image sacrificeSprite;
+        Rectangle [] sacrificeAnimation = new Rectangle[2] { new Rectangle(0, 0, 120, 60), new Rectangle(120, 0, 120, 60) };
+        int sacrificeFrameNum = 0;
+        int sacrificeState = 0;
 
-        Dictionary<string, Rectangle[]> angelTruckAnimation = new Dictionary<string, Rectangle[]>();
+        Rectangle[] angelTruckAnimation = new Rectangle[9] { new Rectangle(0, 0, 350, 200), new Rectangle(350, 0, 350, 200), new Rectangle(700, 0, 350, 200), new Rectangle(1050, 0, 350, 200), new Rectangle(1400, 0, 350, 200), new Rectangle(0, 200, 350, 200), new Rectangle(350, 200, 350, 200), new Rectangle(700, 200, 350, 200), new Rectangle(1050, 200, 350, 200) };
         int angelTruckFrameNum = 0;
         int angelState = 0;
 
-        Dictionary<string, Rectangle[]> demonTruckAnimation = new Dictionary<string, Rectangle[]>();
+        Rectangle[] demonTruckAnimation = new Rectangle[9] { new Rectangle(0, 0, 350, 200), new Rectangle(350, 0, 350, 200), new Rectangle(700, 0, 350, 200), new Rectangle(1050, 0, 350, 200), new Rectangle(1400, 0, 350, 200), new Rectangle(0, 200, 350, 200), new Rectangle(350, 200, 350, 200), new Rectangle(700, 200, 350, 200), new Rectangle(1050, 200, 350, 200) };
         int demonTruckFrameNum = 0;
         int demonState = 0;
-        //Dictionary<string, Rectangle[]> sacrificeAnimation = new Dictionary<string, Rectangle[]>();
 
         int rightOfWay = 0;
 
@@ -89,10 +89,10 @@ namespace eae_coolkatz.Screens
         private float _accelerationAngel;
         private float _accelerationDemon;
 
-        const float _respawnDelayDemon = 2; // seconds
+        const float _respawnDelayDemon = 2.5f; // seconds
         float _remainingDelayDemon = _respawnDelayDemon;
 
-        const float _respawnDelayAngel = 2; // seconds
+        const float _respawnDelayAngel = 2.5f; // seconds
         float _remainingDelayAngel = _respawnDelayAngel;
 
         const float _flipTimeDemon = 50;
@@ -115,9 +115,6 @@ namespace eae_coolkatz.Screens
             tireDemon.LoadContent();
 
             sacrificeSprite.LoadContent();
-            sacrificeAnimation.Add("sacrifice_moving", new Rectangle[2] { new Rectangle(0, 0, 120, 60), new Rectangle(120, 0, 120, 60) });
-
-            angelTruckAnimation.Add("default", new Rectangle[1] { new Rectangle(0, 0, 350, 200)});
 
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
 
@@ -389,6 +386,7 @@ namespace eae_coolkatz.Screens
                 angelCrash = true;
                 angelFlipped = true;
             }
+
             return true;
         }
 
@@ -405,6 +403,7 @@ namespace eae_coolkatz.Screens
         void Reset_Angel()
         {
             angelState = 0;
+            rightOfWay = 0;
 
             truckAngelCollisionBox.Position = new Vector2(16.7f, -1.0f);
             truckAngelCollisionBox.Rotation = 0.0f;
@@ -426,13 +425,13 @@ namespace eae_coolkatz.Screens
             if (b.Body == truckDemonCollisionBox)
             {
                 rightOfWay = 1;
-                angelState = 1;
+                demonState = 1;
             }
 
             else if(b.Body == truckAngelCollisionBox)
             {
                 rightOfWay = 2;
-                demonState = 1;
+                angelState = 1;
             }
             return true;
         }
@@ -448,6 +447,8 @@ namespace eae_coolkatz.Screens
 
             truckAngelCollisionBox.OnCollision += new OnCollisionEventHandler(FlipCheck_Angel);
             truckAngelCollisionBox.OnSeparation += new OnSeparationEventHandler(StillFlipped_Angel);
+
+            sacrifice.OnCollision += new OnCollisionEventHandler(Sacrifice_Possesion);
 
             _springBackAngel.MotorSpeed = Math.Sign(_accelerationAngel) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationAngel));
             _springFrontAngel.MotorSpeed = Math.Sign(_accelerationAngel) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationAngel));
@@ -536,10 +537,15 @@ namespace eae_coolkatz.Screens
 
                 _remainingDelayAngel -= timer;
 
-                if (_remainingDelayAngel <= 0 && angelFlipped)
+                if (_remainingDelayAngel <= 0.5f && angelFlipped)
                 {
                     angelState = 2;
-                    Reset_Angel();
+
+                    if (rightOfWay == 2)
+                        sacrificeState = 1;
+
+                    if (_remainingDelayAngel <= 0 && angelFlipped)
+                        Reset_Angel();
                 }
             }
 
@@ -638,14 +644,13 @@ namespace eae_coolkatz.Screens
 
                 _remainingDelayDemon -= timer;
 
-                if (_remainingDelayDemon <= 0 && demonFlipped)
+                if (_remainingDelayDemon <= 0.5 && demonFlipped)
                 {
                     demonState = 2;
-                    Reset_Demon();
+                    if (_remainingDelayDemon <= 0 && demonFlipped)
+                        Reset_Demon();
                 }
             }
-
-            sacrifice.OnCollision += new OnCollisionEventHandler(Sacrifice_Possesion);
 
             background.Update(gameTime);
             truckAngel.Update(gameTime);
@@ -663,40 +668,97 @@ namespace eae_coolkatz.Screens
             switch (angelState)
             {
                 case 0:
+                    angelTruckFrameNum = 0;
                     break;
                 case 1:
                     angelTruckFrameNum++;
-                    if (sacrificeFrameNum / 10 >= 2)
+                    if (angelTruckFrameNum / 10 >= 2)
                     {
-                        sacrificeFrameNum = 1;
+                        angelTruckFrameNum = 0;
                     }
                     break;
                 case 2:
                     angelTruckFrameNum++;
-                    if (sacrificeFrameNum / 10 >= 6)
+                    if (angelTruckFrameNum / 4 >= 6)
                     {
-                        sacrificeFrameNum = 3;
+                        angelTruckFrameNum = 0;
                     }
                     break;
             }
 
+            switch (demonState)
+            {
+                case 0:
+                    demonTruckFrameNum = 0;
+                    break;
+                case 1:
+                    demonTruckFrameNum++;
+                    if (demonTruckFrameNum / 10 >= 2)
+                    {
+                        demonTruckFrameNum = 0;
+                    }
+                    break;
+                case 2:
+                    demonTruckFrameNum++;
+                    if (demonTruckFrameNum / 4 >= 6)
+                    {
+                        demonTruckFrameNum = 0;
+                    }
+                    break;
+            }
+
+            if (sacrificeState == 1)
+            {
+                if (rightOfWay == 2)
+                {
+                    sacrifice.Position = truckAngelCollisionBox.Position + new Vector2(0, -1.5f);
+                    sacrificeState = 0;
+                }
+                sacrifice.ApplyForce(new Vector2(0, -3f));
+            }
+
             camera.Update(gameTime);
             base.Update(gameTime);
+            //Console.WriteLine(angelState);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             background.Draw(spriteBatch);
 
-            truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation["default"][angelTruckFrameNum],350f,200f);
+            switch (angelState)
+            {
+                case 0:
+                    truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation[0], 350f, 200f);
+                    break;
+                case 1:
+                    truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation[(angelTruckFrameNum / 10) + 1], 350f, 200f);
+                    break;
+                case 2:
+                    truckAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position), truckAngelCollisionBox.Rotation, true, 1f, angelTruckAnimation[(angelTruckFrameNum / 4) + 3], 350f, 200f);
+                    break;
+            }
+
+            switch (demonState)
+            {
+                case 0:
+                    truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f, demonTruckAnimation[0], 350f, 200f);
+                    break;
+                case 1:
+                    truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f, demonTruckAnimation[(demonTruckFrameNum / 10) + 1], 350f, 200f);
+                    break;
+                case 2:
+                    truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f, demonTruckAnimation[(demonTruckFrameNum / 4) + 3], 350f, 200f);
+                    break;
+            }
+
             tireAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackAngel.Position), _wheelBackAngel.Rotation, false, 2f);
             tireAngel.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontAngel.Position), _wheelFrontAngel.Rotation, false, 2f);
 
-            truckDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(truckDemonCollisionBox.Position), truckDemonCollisionBox.Rotation, false, 1f);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackDemon.Position), _wheelBackDemon.Rotation, false, 2f);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false, 2f);
 
-            sacrificeSprite.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(sacrifice.Position), 0f, false, 1f, sacrificeAnimation["sacrifice_moving"][sacrificeFrameNum/10],120f,60f);
+            sacrificeSprite.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(sacrifice.Position), 0f, false, 1f, sacrificeAnimation[sacrificeFrameNum/10], 120f,60f);
 
             spriteBatch.End();
 
