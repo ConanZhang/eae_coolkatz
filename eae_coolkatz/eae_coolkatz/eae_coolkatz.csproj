@@ -71,9 +71,12 @@
     <Content Include="Content\GameplayScreen\AngelTire.png" />
     <Content Include="Content\GameplayScreen\AngelTruck.png" />
     <Content Include="Content\GameplayScreen\AngelVictoryCard.png" />
+    <Content Include="Content\GameplayScreen\AngelVictoryGate.png" />
     <Content Include="Content\GameplayScreen\arena.png" />
     <Content Include="Content\GameplayScreen\DemonTire.png" />
     <Content Include="Content\GameplayScreen\DemonTruck.png" />
+    <Content Include="Content\GameplayScreen\DemonVictoryCard.png" />
+    <Content Include="Content\GameplayScreen\DemonVictoryGate.png" />
     <Content Include="Content\Menu\Background.png" />
     <Content Include="Content\ScreenManager\Fade.png" />
     <Content Include="Content\SplashScreen\Image.png" />

@@ -88,6 +88,7 @@ namespace eae_coolkatz.Screens
         bool angelFlick = false;
 
         Goal angelVictoryGoal;
+        Goal demonVictoryGoal;
         public override void LoadContent()
         {
             base.LoadContent();
@@ -110,8 +111,11 @@ namespace eae_coolkatz.Screens
 
             truckDemon.LoadContent();
             tireDemon.LoadContent();
-            angelVictoryGoal = new Goal(world, new Vector2(960, 540), true);
+            angelVictoryGoal = new Goal(world, new Vector2(1200, 775), true);
             angelVictoryGoal.LoadContent();
+
+            demonVictoryGoal = new Goal(world, new Vector2(600, 775), false);
+            demonVictoryGoal.LoadContent();
 
             if(debug == null)
             {
@@ -177,6 +181,7 @@ namespace eae_coolkatz.Screens
             truckDemonCollisionBox.BodyType = BodyType.Dynamic;
             truckDemonCollisionBox.Position = new Vector2(1.1f, -1.0f);
             truckDemonCollisionBox.CreateFixture(chassisDemon);
+            truckDemonCollisionBox.UserData = "demon";
 
             _wheelBackDemon = new Body(world);
             _wheelBackDemon.BodyType = BodyType.Dynamic;
@@ -221,6 +226,7 @@ namespace eae_coolkatz.Screens
             truckAngelCollisionBox.BodyType = BodyType.Dynamic;
             truckAngelCollisionBox.Position = new Vector2(17.7f, -1.0f);
             truckAngelCollisionBox.CreateFixture(chassisAngel);
+            truckAngelCollisionBox.UserData = "angel";
 
             _wheelBackAngel = new Body(world);
             _wheelBackAngel.BodyType = BodyType.Dynamic;
@@ -268,6 +274,7 @@ namespace eae_coolkatz.Screens
             tireDemon.UnloadContent();
 
             angelVictoryGoal.UnloadContent();
+            demonVictoryGoal.UnloadContent();
         }
 
         void Rear_OnSeperationAngel(Fixture a, Fixture b)
@@ -612,6 +619,7 @@ namespace eae_coolkatz.Screens
             camera.Update(gameTime);
 
             angelVictoryGoal.Update(gameTime);
+            demonVictoryGoal.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -628,6 +636,7 @@ namespace eae_coolkatz.Screens
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false);
 
             angelVictoryGoal.Draw(spriteBatch);
+            demonVictoryGoal.Draw(spriteBatch);
 
             spriteBatch.End();
 

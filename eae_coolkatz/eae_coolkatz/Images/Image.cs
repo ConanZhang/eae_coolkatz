@@ -31,6 +31,8 @@ namespace eae_coolkatz.Images
         public SpriteSheetEffect SpriteSheetEffect;
 
         public bool IsActive;
+        public bool flipHorizontally;
+
         public Image()
         {
             Path = Text = Effects = string.Empty;
@@ -193,12 +195,26 @@ namespace eae_coolkatz.Images
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
+            if(flipHorizontally)
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.FlipHorizontally, 0.0f);
+            }
+            else
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, Origin, Scale, SpriteEffects.None, 0.0f);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 _origin)
         {
-            spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.None, 0.0f);
+            if(flipHorizontally)
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.FlipHorizontally, 0.0f);
+            }
+            else
+            {
+                spriteBatch.Draw(Texture, Position + Origin, SourceRect, Color.White * Alpha, 0.0f, _origin, Scale, SpriteEffects.None, 0.0f);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, bool flip)
