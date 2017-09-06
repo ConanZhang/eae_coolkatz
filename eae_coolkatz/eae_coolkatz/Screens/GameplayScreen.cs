@@ -28,6 +28,7 @@ namespace eae_coolkatz.Screens
 
     public class GameplayScreen : GameScreen
     {
+        private AudioManager audioManager = new AudioManager();
         public Image sacrificeSprite;
         Rectangle [] sacrificeAnimation = new Rectangle[3] { new Rectangle(0, 0, 110, 84), new Rectangle(110, 0, 110, 84), new Rectangle(220, 0, 110, 84)};
         int sacrificeFrameNum = 0;
@@ -113,7 +114,7 @@ namespace eae_coolkatz.Screens
         {
             base.LoadContent();
             background.LoadContent();
-
+            audioManager.LoadContent();
             truckAngel.LoadContent();
             tireAngel.LoadContent();
 
@@ -437,6 +438,7 @@ namespace eae_coolkatz.Screens
                 rightOfWay = RightOfWay.Demon;
                 demonState = TruckState.HasRightOfWay;
                 sacrificeState = SacrificeState.Possessed;
+                audioManager.PlaySound("sacrifice_pickup");
             }
 
             else if(b.Body == truckAngelCollisionBox && sacrificeState == SacrificeState.Unpossessed)
@@ -444,6 +446,7 @@ namespace eae_coolkatz.Screens
                 rightOfWay = RightOfWay.Angel;
                 angelState = TruckState.HasRightOfWay;
                 sacrificeState = SacrificeState.Possessed;
+                audioManager.PlaySound("sacrifice_pickup");
             }
             return true;
         }
@@ -552,6 +555,7 @@ namespace eae_coolkatz.Screens
                 if (_remainingDelayAngel <= 0.5f && angelFlipped)
                 {
                     angelState = TruckState.Dead;
+                    audioManager.PlaySound("crash1");
 
                     if (sacrificeState == SacrificeState.Possessed && rightOfWay == RightOfWay.Angel)
                         sacrificeState = SacrificeState.Dropped;
@@ -659,6 +663,7 @@ namespace eae_coolkatz.Screens
                 if (_remainingDelayDemon <= 0.5 && demonFlipped)
                 {
                     demonState = TruckState.Dead;
+                    audioManager.PlaySound("crash1");
 
                     if (sacrificeState == SacrificeState.Possessed && rightOfWay == RightOfWay.Demon)
                         sacrificeState = SacrificeState.Dropped;

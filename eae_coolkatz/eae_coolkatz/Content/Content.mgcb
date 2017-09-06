@@ -129,3 +129,75 @@
 /processorParam:TextureFormat=Color
 /build:GameplayScreen/SacrificeMove.png
 
+#begin Audio/angel_victory_theme.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/angel_victory_theme.wav
+
+#begin Audio/crash_1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/crash_1.wav
+
+#begin Audio/crash_2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/crash_2.wav
+
+#begin Audio/crash_3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/crash_3.wav
+
+#begin Audio/devil_victory_theme.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/devil_victory_theme.wav
+
+#begin Audio/explosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/explosion.wav
+
+#begin Audio/mainsong.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/mainsong.wav
+
+#begin Audio/main_menu.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/main_menu.wav
+
+#begin Audio/sacrifice_killed.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/sacrifice_killed.wav
+
+#begin Audio/sacrifice_pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/sacrifice_pickup.wav
+
+#begin Audio/Select_sound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Select_sound.wav
+
+#begin Audio/weapon_hit_sound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/weapon_hit_sound.wav
+
