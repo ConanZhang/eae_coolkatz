@@ -15,4 +15,10 @@
   <tireDemon>
     <Path>GameplayScreen/DemonTire</Path>
   </tireDemon>
+  <instructionAngel>
+    <Path>GameplayScreen/AngelInstruction</Path>
+  </instructionAngel>
+  <instructionDemon>
+    <Path>GameplayScreen/DemonInstruction</Path>
+  </instructionDemon>
 </GameplayScreen>

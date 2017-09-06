@@ -89,6 +89,13 @@ namespace eae_coolkatz.Screens
 
         Goal angelVictoryGoal;
         Goal demonVictoryGoal;
+
+        public Image instructionAngel;
+        public Image instructionDemon;
+
+        enum CameraTarget {None, Demon, Angel};
+        CameraTarget cameraTarget;
+
         public override void LoadContent()
         {
             base.LoadContent();
@@ -103,11 +110,15 @@ namespace eae_coolkatz.Screens
             {
                 world.Clear();
             }
+            cameraTarget = CameraTarget.None;
 
             background.LoadContent();
 
             truckAngel.LoadContent();
             tireAngel.LoadContent();
+
+            instructionAngel.LoadContent();
+            instructionDemon.LoadContent();
 
             truckDemon.LoadContent();
             tireDemon.LoadContent();
@@ -257,9 +268,6 @@ namespace eae_coolkatz.Screens
             _springFrontAngel.Frequency = 4.0f;
             _springFrontAngel.DampingRatio = 0.7f;
             world.AddJoint(_springFrontAngel);
-
-            camera.TrackingBody = truckDemonCollisionBox;
-            camera.EnablePositionTracking = true;
         }
 
         public override void UnloadContent()
@@ -269,6 +277,9 @@ namespace eae_coolkatz.Screens
 
             truckAngel.UnloadContent();
             tireAngel.UnloadContent();
+
+            instructionDemon.UnloadContent();
+            instructionDemon.UnloadContent();
 
             truckDemon.UnloadContent();
             tireDemon.UnloadContent();
@@ -364,6 +375,7 @@ namespace eae_coolkatz.Screens
             demonCrash = false;
             demonSpawned = true;
             _remainingDelayDemon = _respawnDelayDemon;
+            cameraTarget = CameraTarget.Angel;
         }
 
         bool FlipCheck_Angel(Fixture a, Fixture b, Contact contact)
@@ -401,6 +413,7 @@ namespace eae_coolkatz.Screens
             angelCrash = false;
             angelSpawned = true;
             _remainingDelayAngel = _respawnDelayAngel;
+            cameraTarget = CameraTarget.Demon;
         }
 
         public override void Update(GameTime gameTime)
@@ -611,9 +624,37 @@ namespace eae_coolkatz.Screens
                 }
             }
 
+
+            if(cameraTarget == CameraTarget.Angel)
+            {
+                camera.TrackingBody = truckAngelCollisionBox;
+                camera.EnablePositionTracking = true;
+                camera._translateCenter = new Vector2(17, 0.0f);
+                instructionAngel.IsActive = true;
+                instructionDemon.IsActive = false;
+            }
+            else if(cameraTarget == CameraTarget.Demon)
+            {
+                camera.TrackingBody = truckDemonCollisionBox;
+                camera.EnablePositionTracking = true;
+                camera._translateCenter = new Vector2(3.0f, 0.0f);
+                instructionDemon.IsActive = true;
+                instructionAngel.IsActive = false;
+            }
+            else
+            {
+                camera.EnablePositionTracking = false;
+                camera._translateCenter = new Vector2(0f, 0.0f);
+                instructionAngel.IsActive = false;
+                instructionDemon.IsActive = false;
+            }
+
+
             background.Update(gameTime);
             truckAngel.Update(gameTime);
             tireAngel.Update(gameTime);
+            instructionAngel.Update(gameTime);
+            instructionDemon.Update(gameTime);
             truckDemon.Update(gameTime);
             tireDemon.Update(gameTime);
             camera.Update(gameTime);
@@ -637,6 +678,15 @@ namespace eae_coolkatz.Screens
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelBackDemon.Position), _wheelBackDemon.Rotation, false);
             tireDemon.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(_wheelFrontDemon.Position), _wheelFrontDemon.Rotation, false);
 
+            if(instructionAngel.IsActive)
+            {
+                instructionAngel.Draw(spriteBatch, -ConvertUnits.ToDisplayUnits(truckAngelCollisionBox.Position.X - 13, 5));
+            }
+
+            if(instructionDemon.IsActive)
+            {
+                instructionDemon.Draw(spriteBatch, -ConvertUnits.ToDisplayUnits(new Vector2(truckDemonCollisionBox.Position.X + 10, 5)));
+            }
             angelVictoryGoal.Draw(spriteBatch);
             demonVictoryGoal.Draw(spriteBatch);
 
