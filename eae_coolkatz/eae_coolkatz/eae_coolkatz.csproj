@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Camera2D.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay\Goal.cs" />
     <Compile Include="Images\FadeEffect.cs" />
     <Compile Include="Images\ImageEffect.cs" />
     <Compile Include="Images\SpriteSheetEffect.cs" />
@@ -67,17 +68,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\GameplayScreen\AngelInstruction.png" />
     <Content Include="Content\GameplayScreen\AngelTire.png" />
     <Content Include="Content\GameplayScreen\AngelTruck.png" />
+    <Content Include="Content\GameplayScreen\AngelVictoryCard.png" />
+    <Content Include="Content\GameplayScreen\AngelVictoryGate.png" />
     <Content Include="Content\GameplayScreen\arena.png" />
     <Content Include="Content\GameplayScreen\DemonTire.png" />
     <Content Include="Content\GameplayScreen\DemonTruck.png" />
+    <Content Include="Content\GameplayScreen\DemonVictoryCard.png" />
+    <Content Include="Content\GameplayScreen\DemonVictoryGate.png" />
+    <Content Include="Content\GameplayScreen\DevilInstruction.png" />
     <Content Include="Content\Menu\Background.png" />
     <Content Include="Content\ScreenManager\Fade.png" />
     <Content Include="Content\SplashScreen\Image.png" />
     <Content Include="Icon.ico" />
     <Content Include="Load\GameplayScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Load\Menus\TitleMenu.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

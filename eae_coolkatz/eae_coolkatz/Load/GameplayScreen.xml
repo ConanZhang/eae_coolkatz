@@ -2,6 +2,10 @@
 <GameplayScreen>
   <background>
     <Path>GameplayScreen/Arena</Path>
+    <Position>
+      <X>-2050</X>
+      <Y>0</Y>
+    </Position>
   </background>
   <truckAngel>
     <Path>GameplayScreen/AngelTruck</Path>
@@ -21,4 +25,10 @@
   <sacrificeSprite>
     <Path>GameplayScreen/SacrificeMove</Path>
   </sacrificeSprite>
+  <instructionAngel>
+    <Path>GameplayScreen/AngelInstruction</Path>
+  </instructionAngel>
+  <instructionDemon>
+    <Path>GameplayScreen/DemonInstruction</Path>
+  </instructionDemon>
 </GameplayScreen>

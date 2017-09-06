@@ -9,4 +9,7 @@
       <Text>Back</Text>
     </Image>
   </Item>
+  <Image>
+    <Path>Menu/Tutorial</Path>
+  </Image>
 </Menu>

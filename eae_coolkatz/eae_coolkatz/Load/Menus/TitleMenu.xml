@@ -31,8 +31,7 @@
   </Item>
 
   <Item>
-    <LinkType>Screen</LinkType>
-    <LinkId>SplashScreen</LinkId>
+    <LinkType>Exit</LinkType>
     <Image>
       <Text>Exit</Text>
     </Image>
@@ -40,5 +39,13 @@
 
   <Image>
     <Path>Menu/Background</Path>
+    <Scale>
+      <X>0.85</X>
+      <Y>0.85</Y>
+    </Scale>
+    <Position>
+      <X>150</X>
+      <Y>-50</Y>
+    </Position>
   </Image>
 </Menu>

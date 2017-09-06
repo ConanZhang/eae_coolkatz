@@ -27,6 +27,9 @@ namespace eae_coolkatz.Screens
         [XmlIgnore]
         public SpriteBatch SpriteBatch;
 
+        [XmlIgnore]
+        public bool Exit;
+
         public Image Image;
         [XmlIgnore]
         public bool IsTransistioning { get; private set; }

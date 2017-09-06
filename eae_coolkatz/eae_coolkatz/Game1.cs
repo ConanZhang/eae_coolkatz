@@ -71,21 +71,9 @@ namespace eae_coolkatz
         {
             ScreenManager.Instance.Update(gameTime);
 
-            if(InputManager.Instance.KeyPressed(Keys.Escape))
+            if(InputManager.Instance.KeyPressed(Keys.Escape) || ScreenManager.Instance.Exit)
             {
                 Exit();
-            }
-            switch(gameStateManager.GameState)
-            {
-                case GameStates.Menu:
-                    break;
-                case GameStates.Playing:
-                    break;
-                case GameStates.Paused:
-                    break;
-                case GameStates.End:
-                    Exit();
-                    break;
             }
             base.Update(gameTime);
         }
@@ -102,18 +90,6 @@ namespace eae_coolkatz
             ScreenManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
 
-            switch(gameStateManager.GameState)
-            {
-                case GameStates.Menu:
-                    break;
-                case GameStates.Playing:
-                    break;
-                case GameStates.Paused:
-                    break;
-                case GameStates.End:
-                    Exit();
-                    break;
-            }
             base.Draw(gameTime);
         }
     }

@@ -89,6 +89,10 @@ namespace eae_coolkatz.Menu
                 {
                     ScreenManager.Instance.ChangeScreens(menu.Items[menu.ItemNumber].LinkId);
                 }
+                else if(menu.Items[menu.ItemNumber].LinkType == "Exit")
+                {
+                    ScreenManager.Instance.Exit = true;
+                }
                 else
                 {
                     isTransitioning = true;

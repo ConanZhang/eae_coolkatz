@@ -25,12 +25,11 @@ namespace eae_koolcatz
         private Vector2 _targetPosition;
         private float _targetRotation;
         private Body _trackingBody;
-        private Vector2 _translateCenter;
+        public Vector2 _translateCenter;
 
         public Matrix SimProjection;
         public Matrix SimView;
         public Matrix View;
-
 
         /// <summary>
         /// The constructor for the Camera2D class.
@@ -42,8 +41,6 @@ namespace eae_koolcatz
             SimProjection = Matrix.CreateOrthographicOffCenter(0f, ConvertUnits.ToSimUnits(_graphics.Viewport.Width), ConvertUnits.ToSimUnits(_graphics.Viewport.Height), 0f, 0f, 1f);
             SimView = Matrix.Identity;
             View = Matrix.Identity;
-
-            _translateCenter = new Vector2(0.0f, 0.0f);
 
             ResetCamera();
         }
@@ -272,7 +269,7 @@ namespace eae_koolcatz
             {
                 if (_positionTracking)
                 {
-                    _targetPosition = _trackingBody.Position;
+                    _targetPosition.X = _trackingBody.Position.X;
                     if (_minPosition != _maxPosition)
                     {
                         Vector2.Clamp(ref _targetPosition, ref _minPosition, ref _maxPosition, out _targetPosition);
@@ -296,7 +293,7 @@ namespace eae_koolcatz
             float inertia;
             if (distance < 10f)
             {
-                inertia = (float)Math.Pow(distance / 10.0, 2.0);
+                inertia = (float)Math.Pow(distance / 10.0, 2.0) * 2;
             }
             else
             {
