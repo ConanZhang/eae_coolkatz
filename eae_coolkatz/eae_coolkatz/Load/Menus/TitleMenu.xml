@@ -11,22 +11,10 @@
   </Item>
 
   <Item>
-    <Image>
-      <Text>Options</Text>
-    </Image>
-  </Item>
-
-  <Item>
     <LinkType>Menu</LinkType>
     <LinkId>Load/Menus/Tutorial.xml</LinkId>
     <Image>
       <Text>Tutorial</Text>
-    </Image>
-  </Item>
-
-  <Item>
-    <Image>
-      <Text>Credits</Text>
     </Image>
   </Item>
 
@@ -39,13 +27,5 @@
 
   <Image>
     <Path>Menu/Background</Path>
-    <Scale>
-      <X>0.85</X>
-      <Y>0.85</Y>
-    </Scale>
-    <Position>
-      <X>150</X>
-      <Y>-50</Y>
-    </Position>
   </Image>
 </Menu>
