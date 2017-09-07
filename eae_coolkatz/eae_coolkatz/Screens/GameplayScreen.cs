@@ -122,6 +122,7 @@ namespace eae_coolkatz.Screens
         enum CameraTarget {Init, Lock, Demon, Angel};
         CameraTarget cameraTarget;
 
+        public Image endText;
         public override void LoadContent()
         {
             base.LoadContent();
@@ -149,6 +150,8 @@ namespace eae_coolkatz.Screens
 
             instructionAngel.LoadContent();
             instructionDemon.LoadContent();
+
+            endText.LoadContent();
 
             truckDemon.LoadContent();
             tireDemon.LoadContent();
@@ -330,6 +333,9 @@ namespace eae_coolkatz.Screens
 
             instructionDemon.UnloadContent();
             instructionDemon.UnloadContent();
+
+            endText.UnloadContent();
+
 
             truckDemon.UnloadContent();
             tireDemon.UnloadContent();
@@ -530,7 +536,19 @@ namespace eae_coolkatz.Screens
 
         public override void Update(GameTime gameTime)
         {
-            world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f, (1f / 30f)));
+            if (!angelVictoryGoal.activated && !demonVictoryGoal.activated)
+            {
+                world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f, (1f / 30f)));
+            }
+
+            if (InputManager.Instance.KeyPressed(Keys.Escape))
+            {
+                ScreenManager.Instance.ChangeScreens("TitleScreen");
+            }
+            else if (InputManager.Instance.KeyPressed(Keys.Enter) && (angelVictoryGoal.activated || demonVictoryGoal.activated))
+            {
+                ScreenManager.Instance.ChangeScreens("GameplayScreen");
+            }
 
             _wheelBackAngel.OnCollision += new OnCollisionEventHandler(Rear_OnCollisionAngel);
             _wheelFrontAngel.OnCollision += new OnCollisionEventHandler(Front_OnCollisionAngel);
@@ -795,6 +813,7 @@ namespace eae_coolkatz.Screens
             tireAngel.Update(gameTime);
             instructionAngel.Update(gameTime);
             instructionDemon.Update(gameTime);
+            endText.Update(gameTime);
             truckDemon.Update(gameTime);
             tireDemon.Update(gameTime);
 
@@ -1005,6 +1024,15 @@ namespace eae_coolkatz.Screens
             if(instructionDemon.IsActive)
             {
                 instructionDemon.Draw(spriteBatch, -ConvertUnits.ToDisplayUnits(new Vector2(truckDemonCollisionBox.Position.X + 10, 5)));
+            }
+
+            if (angelVictoryGoal.activated)
+            {
+                endText.Draw(spriteBatch, new Vector2(-9000, -600));
+            }
+            else if (demonVictoryGoal.activated)
+            {
+                endText.Draw(spriteBatch, new Vector2(5500, -600));
             }
             angelVictoryGoal.Draw(spriteBatch);
             demonVictoryGoal.Draw(spriteBatch);

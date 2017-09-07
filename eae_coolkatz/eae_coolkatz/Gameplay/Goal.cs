@@ -19,9 +19,11 @@ namespace eae_coolkatz.Gameplay
         Image victoryGate;
         Body goalSensor;
         private bool isAngel;
+        public bool activated;
 
         public Goal(World world, Vector2 Position, bool isAngel)
         {
+            activated = false;
             this.isAngel = isAngel;
             victoryGate = new Image();
             victoryGate.Effects = "SpriteSheetEffect";
@@ -69,6 +71,7 @@ namespace eae_coolkatz.Gameplay
         {
             victoryCard.IsActive = true;
             victoryGate.IsActive = true;
+            activated = true;
         }
 
         public void LoadContent()

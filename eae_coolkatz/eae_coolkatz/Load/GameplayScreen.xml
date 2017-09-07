@@ -31,4 +31,10 @@
   <instructionDemon>
     <Path>GameplayScreen/DemonInstruction</Path>
   </instructionDemon>
+  <endText>
+    <Text>
+      Escape: Return to Menu
+      Enter: Restart
+    </Text>
+  </endText>
 </GameplayScreen>
