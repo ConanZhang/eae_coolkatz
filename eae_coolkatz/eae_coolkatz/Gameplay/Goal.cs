@@ -51,12 +51,12 @@ namespace eae_coolkatz.Gameplay
 
         private bool OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
         {
-            if(isAngel && (string)fixtureB.Body.UserData == "demon")
+            if(isAngel && (string)fixtureB.Body.UserData == "demon_sacrifice")
             {
                 ActivateImage();
                 return true;
             }
-            else if(!isAngel && (string)fixtureB.Body.UserData == "angel")
+            else if(!isAngel && (string)fixtureB.Body.UserData == "angel_sacrifice")
             {
                 ActivateImage();
                 return true;

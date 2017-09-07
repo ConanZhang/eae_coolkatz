@@ -488,6 +488,7 @@ namespace eae_coolkatz.Screens
                 rightOfWay = RightOfWay.Demon;
                 demonState = TruckState.HasRightOfWay;
                 sacrificeState = SacrificeState.Possessed;
+                truckDemonCollisionBox.UserData = "demon_sacrifice";
 
                 audioManager.PlaySound("sacrifice_pickup");
             }
@@ -497,6 +498,7 @@ namespace eae_coolkatz.Screens
                 rightOfWay = RightOfWay.Angel;
                 angelState = TruckState.HasRightOfWay;
                 sacrificeState = SacrificeState.Possessed;
+                truckAngelCollisionBox.UserData = "angel_sacrifice";
 
                 audioManager.PlaySound("sacrifice_pickup");
             }
@@ -639,7 +641,10 @@ namespace eae_coolkatz.Screens
                     audioManager.PlaySound("crash1");
 
                     if (sacrificeState == SacrificeState.Possessed && rightOfWay == RightOfWay.Angel)
+                    {
                         sacrificeState = SacrificeState.Dropped;
+                        truckAngelCollisionBox.UserData = "angel";
+                    }
 
                     if (_remainingDelayAngel <= 0 && angelFlipped)
                         Reset_Angel();
@@ -747,7 +752,10 @@ namespace eae_coolkatz.Screens
                     audioManager.PlaySound("crash1");
 
                     if (sacrificeState == SacrificeState.Possessed && rightOfWay == RightOfWay.Demon)
+                    {
                         sacrificeState = SacrificeState.Dropped;
+                        truckAngelCollisionBox.UserData = "demon";
+                    }
 
                     if (_remainingDelayDemon <= 0 && demonFlipped)
                         Reset_Demon();
