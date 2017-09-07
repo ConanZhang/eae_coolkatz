@@ -135,3 +135,75 @@ C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.exe
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.pdb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\obj\x86\Debug\eae_coolkatz.csprojResolveAssemblyReference.cache
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Font.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Load\GameplayScreen.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Load\Menus\TitleMenu.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Load\Menus\Tutorial.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Load\ScreenManager.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Load\SplashScreen.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\eae_coolkatz.exe
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\eae_coolkatz.pdb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\DebugView MonoGame.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\FarseerPhysics MonoGame.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\MonoGame.Framework.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.MediaFoundation.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.XAudio2.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D11.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.DXGI.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.Direct2D1.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.XInput.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.RawInput.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D9.dll
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\DebugView MonoGame.pdb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\FarseerPhysics MonoGame.pdb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\MonoGame.Framework.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.MediaFoundation.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.XAudio2.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D11.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.DXGI.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.Direct2D1.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.XInput.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.RawInput.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\SharpDX.Direct3D9.xml
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\angel_victory_theme.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\crash_1.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\crash_2.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\crash_3.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\devil_victory_theme.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\explosion.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\main_menu.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_killed.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_pickup.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\Select_sound.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Audio\weapon_hit_sound.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Fonts\Arial.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTire.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTruck.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelVictoryCard.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\Arena.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTruck.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
+C:\Sites\coolkatz_working\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\Sacrifice.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\angel_victory_theme.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\crash_1.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\crash_2.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\crash_3.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\devil_victory_theme.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\explosion.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\main_menu.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_killed.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_pickup.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\Select_sound.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\weapon_hit_sound.xnb

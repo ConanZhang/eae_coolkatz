@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AudioManager.cs" />
     <Compile Include="Camera2D.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay\Goal.cs" />
@@ -115,6 +116,18 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Content\Audio\angel_victory_theme.xnb" />
+    <None Include="Content\Audio\crash_1.xnb" />
+    <None Include="Content\Audio\crash_2.xnb" />
+    <None Include="Content\Audio\crash_3.xnb" />
+    <None Include="Content\Audio\devil_victory_theme.xnb" />
+    <None Include="Content\Audio\explosion.xnb" />
+    <None Include="Content\Audio\mainsong.xnb" />
+    <None Include="Content\Audio\main_menu.xnb" />
+    <None Include="Content\Audio\sacrifice_killed.xnb" />
+    <None Include="Content\Audio\sacrifice_pickup.xnb" />
+    <None Include="Content\Audio\Select_sound.xnb" />
+    <None Include="Content\Audio\weapon_hit_sound.xnb" />
     <None Include="Content\Fonts\Arial.spritefont" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
