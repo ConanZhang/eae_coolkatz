@@ -24,20 +24,21 @@ namespace eae_coolkatz.Gameplay
         {
             this.isAngel = isAngel;
             victoryGate = new Image();
+            victoryGate.Effects = "SpriteSheetEffect";
             victoryCard = new Image();
             victoryCard.Position = Position;
             victoryCard.Effects = "SpriteSheetEffect";
             if (isAngel)
             {
                 victoryGate.Texture = ScreenManager.Instance.Content.Load<Texture2D>("GameplayScreen/AngelVictoryGate");
-                victoryGate.flipHorizontally = true;
                 victoryCard.Texture = ScreenManager.Instance.Content.Load<Texture2D>("GameplayScreen/DemonVictoryCard");
+                victoryGate.Position= new Vector2(8150,625);
             }
             else
             {
                 victoryGate.Texture = ScreenManager.Instance.Content.Load<Texture2D>("GameplayScreen/DemonVictoryGate");
-                victoryGate.Effects = "SpriteSheetEffect";
                 victoryCard.Texture = ScreenManager.Instance.Content.Load<Texture2D>("GameplayScreen/AngelVictoryCard");
+                victoryGate.Position= new Vector2(-5000,550);
             }
 
 
@@ -67,19 +68,16 @@ namespace eae_coolkatz.Gameplay
         public void ActivateImage()
         {
             victoryCard.IsActive = true;
+            victoryGate.IsActive = true;
         }
 
         public void LoadContent()
         {
             victoryGate.LoadContent();
-            if(!isAngel)
-            {
-                victoryGate.SpriteSheetEffect.AmountOfFrames = new Vector2(7, 1);
-                victoryGate.IsActive = true;
-            }
+            victoryGate.SpriteSheetEffect.AmountOfFrames = new Vector2(4, 3);
+            victoryGate.SpriteSheetEffect.scrollThrough = true;
             victoryCard.LoadContent();
             victoryCard.Position = new Vector2(victoryCard.Position.X, ScreenManager.Instance.Dimensions.Y / 3);
-            //ActivateImage();
         }
 
         public void UnloadContent()
@@ -101,15 +99,8 @@ namespace eae_coolkatz.Gameplay
                 victoryCard.Draw(spriteBatch, new Vector2( victoryCard.SpriteSheetEffect.FrameWidth / 2, victoryCard.SpriteSheetEffect.FrameHeight /2));
             }
 
-            if(isAngel)
-            {
-                victoryGate.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(goalSensor.Position), goalSensor.Rotation, true, 0f);
-            }
-            else
-            {
-                victoryGate.Draw(spriteBatch, ConvertUnits.ToDisplayUnits(goalSensor.Position.X + 9, goalSensor.Position.Y), goalSensor.Rotation, true, 0f);
-            }
-
+            victoryGate.Draw(spriteBatch);
+            victoryGate.Draw(spriteBatch);
         }
     }
 }

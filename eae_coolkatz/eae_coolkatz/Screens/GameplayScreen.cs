@@ -1004,7 +1004,7 @@ namespace eae_coolkatz.Screens
             spriteBatch.End();
 
             spriteBatch.Begin();
-            //debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
             base.Draw(spriteBatch);
         }
 

@@ -12,6 +12,7 @@ namespace eae_coolkatz.Images
         public int SwitchFrame;
         public Vector2 CurrentFrame;
         public Vector2 AmountOfFrames;
+        public bool scrollThrough;
 
         public int FrameWidth
         {
@@ -69,6 +70,15 @@ namespace eae_coolkatz.Images
                     if (CurrentFrame.X * FrameWidth >= image.Texture.Width)
                     {
                         CurrentFrame.X = 0;
+                        if (scrollThrough && AmountOfFrames.Y > 1)
+                        {
+                            CurrentFrame.Y++;
+
+                            if (CurrentFrame.Y * FrameHeight >= image.Texture.Height)
+                            {
+                                CurrentFrame.Y = 0;
+                            }
+                        }
                     }
                 }
             }
