@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</SourceFile>
-  <SourceTime>2017-08-30T22:41:51.8441347-06:00</SourceTime>
-  <DestFile>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/bin/Windows/SplashScreen/Image.xnb</DestFile>
-  <DestTime>2017-09-07T09:42:58.0448496-06:00</DestTime>
+  <SourceFile>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</SourceFile>
+  <SourceTime>2017-08-31T17:09:18.908468-06:00</SourceTime>
+  <DestFile>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/bin/Windows/SplashScreen/Image.xnb</DestFile>
+  <DestTime>2017-09-07T09:47:14.2897828-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T11:14:44-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
