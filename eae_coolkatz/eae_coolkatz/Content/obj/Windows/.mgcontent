@@ -4,28 +4,28 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Fonts/Arial.spritefont</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTire.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTruck.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTire.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTruck.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/SacrificeFall.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/SacrificeMove.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/Arena.png</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/angel_victory_theme.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/crash_1.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/crash_2.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/crash_3.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/devil_victory_theme.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/explosion.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/mainsong.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/main_menu.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/sacrifice_killed.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/sacrifice_pickup.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/Select_sound.wav</File>
-    <File>C:/Users/Varun Murthy/Documents/GIT Repos/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/weapon_hit_sound.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Fonts/Arial.spritefont</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/SplashScreen/Image.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/ScreenManager/Fade.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Background.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTire.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelTruck.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTire.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonTruck.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/SacrificeFall.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/SacrificeMove.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/Arena.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/angel_victory_theme.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/crash_1.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/crash_2.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/crash_3.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/devil_victory_theme.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/explosion.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/mainsong.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/main_menu.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/sacrifice_killed.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/sacrifice_pickup.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/Select_sound.wav</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/weapon_hit_sound.wav</File>
   </SourceFiles>
 </SourceFileCollection>
