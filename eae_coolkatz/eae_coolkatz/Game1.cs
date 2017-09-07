@@ -22,7 +22,6 @@ namespace eae_coolkatz
             {
                 PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X,
                 PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y,
-                IsFullScreen = true
             };
             Content.RootDirectory = "Content";
         }
