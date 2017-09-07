@@ -23,7 +23,7 @@ namespace eae_coolkatz.Screens
 {
     enum SacrificeState : int {Unpossessed = 0, Dropped, Possessed};
 
-    enum TruckState : int {Default = 0, HasRightOfWay, Dead};
+    enum TruckState : int {Default = 0, HasRightOfWay, Dead, Spawned};
 
     enum RightOfWay: int {Default = 0, Demon, Angel, Init};
 
@@ -151,10 +151,10 @@ namespace eae_coolkatz.Screens
 
             truckDemon.LoadContent();
             tireDemon.LoadContent();
-            angelVictoryGoal = new Goal(world, new Vector2(3500, 775), true);
+            angelVictoryGoal = new Goal(world, new Vector2(8350, 775), true);
             angelVictoryGoal.LoadContent();
 
-            demonVictoryGoal = new Goal(world, new Vector2(-1800, 775), false);
+            demonVictoryGoal = new Goal(world, new Vector2(-4900, 775), false);
             demonVictoryGoal.LoadContent();
 
             if(debug == null)
@@ -170,7 +170,7 @@ namespace eae_coolkatz.Screens
 
             {
                 Vertices terrain = new Vertices();
-                terrain.Add(ConvertUnits.ToSimUnits(-2050, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(-6890, 880));
                 //terrain.Add(ConvertUnits.ToSimUnits(200, 880));
                 //terrain.Add(ConvertUnits.ToSimUnits(400, 870));
                 //terrain.Add(ConvertUnits.ToSimUnits(600, 890));
@@ -182,7 +182,7 @@ namespace eae_coolkatz.Screens
                 //terrain.Add(ConvertUnits.ToSimUnits(1800, 875));
                 ////terrain.Add(ConvertUnits.ToSimUnits(20, 890));
                 ////terrain.Add(ConvertUnits.ToSimUnits(20, 890));
-                terrain.Add(ConvertUnits.ToSimUnits(3700, 880));
+                terrain.Add(ConvertUnits.ToSimUnits(8540, 880));
 
                 for (int i = 0; i < terrain.Count - 1; ++i)
                 {
@@ -209,13 +209,13 @@ namespace eae_coolkatz.Screens
             wallRight.Friction = 0.2f;
 
             wallLeft_1 = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(2f), ConvertUnits.ToSimUnits(1080f), 10f);
-            wallLeft_1.Position = ConvertUnits.ToSimUnits(-2000, 540);
+            wallLeft_1.Position = ConvertUnits.ToSimUnits(-5000, 540);
             wallLeft_1.IsStatic = true;
             wallLeft_1.Restitution = 0.2f;
             wallLeft_1.Friction = 0.2f;
 
             wallRight_1 = BodyFactory.CreateRectangle(world, ConvertUnits.ToSimUnits(2f), ConvertUnits.ToSimUnits(1080f), 10f);
-            wallRight_1.Position = ConvertUnits.ToSimUnits(3700, 540);
+            wallRight_1.Position = ConvertUnits.ToSimUnits(8430, 540);
             wallRight_1.IsStatic = true;
             wallRight_1.Restitution = 0.2f;
             wallRight_1.Friction = 0.2f;
@@ -419,7 +419,8 @@ namespace eae_coolkatz.Screens
             if (rightOfWay == RightOfWay.Demon)
                 rightOfWay = RightOfWay.Default;
 
-            truckDemonCollisionBox.Position = camera._currentPosition + new Vector2(3.5f, -1.0f);
+            //truckDemonCollisionBox.Position = camera._currentPosition + new Vector2(3.5f, -1.0f);
+            truckDemonCollisionBox.Position = truckAngelCollisionBox.Position + new Vector2(-9f, -1f);
             truckDemonCollisionBox.Rotation = 0.0f;
             truckDemonCollisionBox.LinearVelocity = new Vector2(0, 0);
             truckDemonCollisionBox.AngularVelocity = 0f;
@@ -462,7 +463,9 @@ namespace eae_coolkatz.Screens
             if (rightOfWay == RightOfWay.Angel)
                 rightOfWay = RightOfWay.Default;
 
-            truckAngelCollisionBox.Position = camera._currentPosition + new Vector2(16.7f, -1.0f);
+            //truckAngelCollisionBox.Position = camera._currentPosition + new Vector2(16.7f, -1.0f);
+            truckAngelCollisionBox.Position = truckDemonCollisionBox.Position + new Vector2(9f, -1f);
+
             _wheelBackAngel.Position = truckAngelCollisionBox.Position + new Vector2(0f, 0.55f);
             _wheelFrontAngel.Position = truckAngelCollisionBox.Position + new Vector2(1.1f, 0.55f);
 
@@ -497,6 +500,29 @@ namespace eae_coolkatz.Screens
             return true;
         }
 
+        void CameraMove (Fixture a, Fixture b)
+        {
+            if (rightOfWay == RightOfWay.Angel && b.Body == truckAngelCollisionBox && a.Body == wallLeft)
+            {
+                //LockCamera();
+                //Reset_Demon();
+                //rightOfWay = RightOfWay.Default;
+                cameraTarget = CameraTarget.Lock;
+                demonState = TruckState.Spawned;
+
+            }
+
+            if (rightOfWay == RightOfWay.Demon && b.Body == truckDemonCollisionBox && a.Body == wallRight)
+            {
+                //LockCamera();
+                //Reset_Angel();
+                //rightOfWay = RightOfWay.Default;
+                cameraTarget = CameraTarget.Lock;
+                angelState = TruckState.Spawned;
+
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
             world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f, (1f / 30f)));
@@ -510,6 +536,11 @@ namespace eae_coolkatz.Screens
             truckAngelCollisionBox.OnSeparation += new OnSeparationEventHandler(StillFlipped_Angel);
 
             sacrifice.OnCollision += new OnCollisionEventHandler(Sacrifice_Possesion);
+
+            //wallLeft.IgnoreCollisionWith(_wheelBackAngel);
+            //wallRight.IgnoreCollisionWith(_wheelFrontDemon);
+            wallLeft.OnSeparation += new OnSeparationEventHandler(CameraMove);
+            wallRight.OnSeparation += new OnSeparationEventHandler(CameraMove);
 
             _springBackAngel.MotorSpeed = Math.Sign(_accelerationAngel) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationAngel));
             _springFrontAngel.MotorSpeed = Math.Sign(_accelerationAngel) * MathHelper.SmoothStep(0f, MaxSpeed, Math.Abs(_accelerationAngel));
@@ -724,37 +755,26 @@ namespace eae_coolkatz.Screens
                 camera.TrackingBody = truckAngelCollisionBox;
                 camera.EnablePositionTracking = true;
                 camera._translateCenter = new Vector2(17f, 0.0f);
-                wallLeft.IsSensor = true;
-                wallRight.IsSensor = false;
             }
             else if(cameraTarget == CameraTarget.Demon)
             {
                 camera.TrackingBody = truckDemonCollisionBox;
                 camera.EnablePositionTracking = true;
                 camera._translateCenter = new Vector2(3f, 0.0f);
-                wallLeft.IsSensor = false;
-                wallRight.IsSensor = true;
             }
             else if (cameraTarget == CameraTarget.Lock)
             {
                 camera.EnablePositionTracking = false;
-                camera.MoveCamera(camera._translateCenter * new Vector2(-1,-1));
+                camera.MoveCamera(camera._translateCenter * new Vector2(-1, -1));
                 camera._translateCenter = new Vector2(0, 0);
-                //camera.ta
-             
-                instructionAngel.IsActive = false;
-                instructionDemon.IsActive = false;
+
                 wallLeft.Position = camera._currentPosition + new Vector2(0, 5);
                 wallRight.Position = camera._currentPosition + new Vector2(19.2f, 5);
-                wallLeft.IsSensor = false;
-                wallRight.IsSensor = false;
             }
             else if (cameraTarget == CameraTarget.Init)
             {
                 camera.EnablePositionTracking = false;
                 camera._translateCenter = new Vector2(0f, 0.0f);
-                instructionAngel.IsActive = false;
-                instructionDemon.IsActive = false;
             }
 
             background.Update(gameTime);
@@ -776,6 +796,7 @@ namespace eae_coolkatz.Screens
                         //sacrifice.LinearVelocity = new Vector2(0, 0);
                         sacrifice.ApplyLinearImpulse(new Vector2(-2, -2f));
                         sacrificeState = SacrificeState.Unpossessed;
+                        rightOfWay = RightOfWay.Default;
                     }
 
                     else if (rightOfWay == RightOfWay.Demon)
@@ -784,6 +805,7 @@ namespace eae_coolkatz.Screens
                         //sacrifice.LinearVelocity = new Vector2(0, 0);
                         sacrifice.ApplyLinearImpulse(new Vector2(2, -2f));
                         sacrificeState = SacrificeState.Unpossessed;
+                        rightOfWay = RightOfWay.Default;
                     }
 
                     sacrifice.IgnoreCollisionWith(truckAngelCollisionBox);
@@ -848,6 +870,9 @@ namespace eae_coolkatz.Screens
                     }
                     instructionAngel.IsActive = false;
                     break;
+                case TruckState.Spawned:
+                    Reset_Angel();
+                    break;
             }
 
             switch (demonState)
@@ -873,15 +898,22 @@ namespace eae_coolkatz.Screens
                     }
                     instructionDemon.IsActive = false;
                     break;
+                case TruckState.Spawned:
+                    Reset_Demon();
+                    break;
             }
 
             switch (rightOfWay)
             {
                 case RightOfWay.Angel:
                     cameraTarget = CameraTarget.Angel;
+                    wallLeft.IsSensor = true;
+                    wallRight.IsSensor = false;
                     break;
                 case RightOfWay.Demon:
                     cameraTarget = CameraTarget.Demon;
+                    wallLeft.IsSensor = false;
+                    wallRight.IsSensor = true;
                     break;
                 case RightOfWay.Default:
                     cameraTarget = CameraTarget.Lock;
