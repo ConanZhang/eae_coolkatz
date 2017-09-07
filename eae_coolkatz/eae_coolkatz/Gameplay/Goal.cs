@@ -60,6 +60,7 @@ namespace eae_coolkatz.Gameplay
                 ActivateImage();
                 return true;
             }
+
             return false;
         }
 

@@ -13,7 +13,7 @@ namespace eae_koolcatz
         private const float MinZoom = 0.02f;
         private const float MaxZoom = 20f;
 
-        private Vector2 _currentPosition;
+        public Vector2 _currentPosition;
         private float _currentRotation;
         private float _currentZoom;
         private Vector2 _maxPosition;
@@ -22,7 +22,7 @@ namespace eae_koolcatz
         private float _minRotation;
         private bool _positionTracking;
         private bool _rotationTracking;
-        private Vector2 _targetPosition;
+        public Vector2 _targetPosition;
         private float _targetRotation;
         private Body _trackingBody;
         public Vector2 _translateCenter;
