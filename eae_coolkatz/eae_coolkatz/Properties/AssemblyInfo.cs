@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("eae_coolkatz")]
+[assembly: AssemblyTitle("MonsterMania3")]
 [assembly: AssemblyProduct("eae_coolkatz")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyCompany("College of Engineering")]
+[assembly: AssemblyCompany("Cool Katz Interactive")]
 [assembly: AssemblyCopyright("Copyright © College of Engineering 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("3.4.0.456")]
-[assembly: AssemblyFileVersion("3.4.0.456")]
+[assembly: AssemblyFileVersion("1.0")]
