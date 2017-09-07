@@ -80,7 +80,14 @@ namespace eae_coolkatz.Gameplay
             victoryGate.SpriteSheetEffect.AmountOfFrames = new Vector2(4, 3);
             victoryGate.SpriteSheetEffect.scrollThrough = true;
             victoryCard.LoadContent();
-            victoryCard.Position = new Vector2(victoryCard.Position.X, ScreenManager.Instance.Dimensions.Y / 3);
+            if(isAngel)
+            {
+                victoryCard.Position = new Vector2(victoryCard.Position.X - 900, ScreenManager.Instance.Dimensions.Y / 3);
+            }
+            else
+            {
+                victoryCard.Position = new Vector2(victoryCard.Position.X + 900, ScreenManager.Instance.Dimensions.Y / 3);
+            }
         }
 
         public void UnloadContent()

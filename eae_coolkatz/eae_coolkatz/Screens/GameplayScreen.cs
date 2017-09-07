@@ -140,8 +140,8 @@ namespace eae_coolkatz.Screens
                 world.Clear();
             }
             cameraTarget = CameraTarget.Init;
-            //camera.MaxPosition = new Vector2 (55, 0);
-            //camera.MinPosition = new Vector2(-70, 0);
+            camera.MaxPosition = new Vector2 (6850, 0);
+            camera.MinPosition = new Vector2(-3300, 0);
 
             background.LoadContent();
 
@@ -1030,11 +1030,11 @@ namespace eae_coolkatz.Screens
 
             if (angelVictoryGoal.activated)
             {
-                endText.Draw(spriteBatch, new Vector2(-9000, -600));
+                endText.Draw(spriteBatch, new Vector2(-7000, -600));
             }
             else if (demonVictoryGoal.activated)
             {
-                endText.Draw(spriteBatch, new Vector2(5500, -600));
+                endText.Draw(spriteBatch, new Vector2(4000, -600));
             }
             angelVictoryGoal.Draw(spriteBatch);
             demonVictoryGoal.Draw(spriteBatch);
