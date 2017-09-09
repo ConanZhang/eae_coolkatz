@@ -2,6 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
+
 using System;
 
 namespace eae_coolkatz
@@ -15,6 +18,8 @@ namespace eae_coolkatz
         SpriteBatch spriteBatch;
 
         GameStateManager gameStateManager;
+
+        Song song;
 
         public Game1()
         {
@@ -50,6 +55,7 @@ namespace eae_coolkatz
             ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
             ScreenManager.Instance.SpriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
+
         }
 
         /// <summary>
@@ -70,7 +76,9 @@ namespace eae_coolkatz
         {
             ScreenManager.Instance.Update(gameTime);
 
-            if(ScreenManager.Instance.Exit)
+            //MediaPlayer.Play(song);
+
+            if (ScreenManager.Instance.Exit)
             {
                 Exit();
             }

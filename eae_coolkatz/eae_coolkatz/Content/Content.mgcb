@@ -165,12 +165,6 @@
 /processorParam:Quality=Best
 /build:Audio/explosion.wav
 
-#begin Audio/mainsong.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/mainsong.wav
-
 #begin Audio/main_menu.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -200,4 +194,10 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/weapon_hit_sound.wav
+
+#begin Audio/mainsong.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/mainsong.mp3
 

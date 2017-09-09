@@ -221,3 +221,4 @@ C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkat
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\weapon_hit_sound.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.wma

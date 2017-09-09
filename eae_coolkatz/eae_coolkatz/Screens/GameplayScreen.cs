@@ -18,6 +18,8 @@ using eae_koolcatz;
 using FarseerPhysics.Factories;
 using System.Xml.Serialization;
 using eae_coolkatz.Gameplay;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace eae_coolkatz.Screens
 {
@@ -71,6 +73,8 @@ namespace eae_coolkatz.Screens
         WheelJoint _springBackAngel;
         WheelJoint _springFrontAngel;
 
+        Song song;
+
         bool rearInTheAirAngel = false;
         bool frontInTheAirAngel = false;
         bool angelCrash = false;
@@ -95,7 +99,7 @@ namespace eae_coolkatz.Screens
         bool demonCrash = false;
         bool demonFlipped = false;
 
-        const float MaxSpeed = 50.0f;
+        const float MaxSpeed = 30.0f;
         private float _accelerationAngel;
         private float _accelerationDemon;
 
@@ -126,9 +130,10 @@ namespace eae_coolkatz.Screens
         public override void LoadContent()
         {
             base.LoadContent();
+            song = ScreenManager.Instance.Content.Load<Song>("Audio/mainsong"); // use the name of your song instead of "song_name"
 
             sacrificeSprite.LoadContent();
-
+            audioManager.LoadContent();
             camera = new Camera2D(ScreenManager.Instance.GraphicsDevice);
 
             if(world == null)
@@ -436,6 +441,8 @@ namespace eae_coolkatz.Screens
 
                 _wheelBackDemon.Position = truckDemonCollisionBox.Position + new Vector2(-1.1f, 0.6f);
                 _wheelFrontDemon.Position = truckDemonCollisionBox.Position + new Vector2(-0.1f, 0.6f);
+
+                truckAngelCollisionBox.ApplyLinearImpulse(new Vector2(15f, 0));
             }
 
             demonFlipped = false;
@@ -484,6 +491,8 @@ namespace eae_coolkatz.Screens
                 truckAngelCollisionBox.Rotation = 0.0f;
                 truckAngelCollisionBox.LinearVelocity = new Vector2(0, 0);
                 truckAngelCollisionBox.AngularVelocity = 0f;
+
+                truckDemonCollisionBox.ApplyLinearImpulse(new Vector2(-15f, 0));
             }
 
             angelFlipped = false;
@@ -540,6 +549,8 @@ namespace eae_coolkatz.Screens
 
         public override void Update(GameTime gameTime)
         {
+            //MediaPlayer.Play(song);
+
             if (!angelVictoryGoal.activated && !demonVictoryGoal.activated)
             {
                 world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f, (1f / 30f)));
@@ -619,12 +630,12 @@ namespace eae_coolkatz.Screens
             if (InputManager.Instance.KeyPressed(Keys.Up))
             {
                 if (!rearInTheAirAngel || !frontInTheAirAngel)
-                    truckAngelCollisionBox.ApplyForce(new Vector2(0, -2500), truckAngelCollisionBox.Position + new Vector2(0.3f, 0f));
+                    truckAngelCollisionBox.ApplyForce(new Vector2(0, -1500), truckAngelCollisionBox.Position + new Vector2(0.3f, 0f));
             }
 
             else if (InputManager.Instance.KeyPressed(Keys.RightShift))
             {
-                audioManager.PlaySound("sacrifice_pickup");
+                //audioManager.PlaySound("sacrifice_pickup");
 
                 if (!rearInTheAirAngel)
                 {
@@ -743,7 +754,7 @@ namespace eae_coolkatz.Screens
             else if (InputManager.Instance.KeyPressed(Keys.W))
             {
                 if (!rearInTheAirDemon || !frontInTheAirDemon)
-                     truckDemonCollisionBox.ApplyForce(new Vector2(0, -2500), truckDemonCollisionBox.Position + new Vector2(-0.35f, 0f));
+                     truckDemonCollisionBox.ApplyForce(new Vector2(0, -1500), truckDemonCollisionBox.Position + new Vector2(-0.35f, 0f));
             }
 
             if (demonFlick)
@@ -1050,7 +1061,7 @@ namespace eae_coolkatz.Screens
             spriteBatch.End();
 
             spriteBatch.Begin();
-            //debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
+            debug.RenderDebugData(ref camera.SimProjection, ref camera.SimView);
             base.Draw(spriteBatch);
         }
 
