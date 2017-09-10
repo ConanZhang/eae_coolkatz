@@ -121,16 +121,6 @@ C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Fonts\Arial.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\angel.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTire.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTruck.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTruck.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
-C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
 C:\Users\u1119356\Documents\GIT Projects\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
@@ -207,18 +197,29 @@ C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_pickup.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\Select_sound.xnb
 C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\weapon_hit_sound.xnb
+C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.wma
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\angel_victory_theme.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\crash_1.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\crash_2.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\crash_3.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\devil_victory_theme.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\explosion.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.wma
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\main_menu.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_killed.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\sacrifice_pickup.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\Select_sound.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\weapon_hit_sound.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Fonts\Arial.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\angel.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTire.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\AngelTruck.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\arena.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTire.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\DemonTruck.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeFall.xnb
 C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\GameplayScreen\SacrificeMove.xnb
-C:\Users\Varun Murthy\Documents\GIT Repos\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Audio\mainsong.wma
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\Menu\Background.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\ScreenManager\Fade.xnb
+C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Content\SplashScreen\Image.xnb
