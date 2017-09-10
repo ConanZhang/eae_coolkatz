@@ -84,6 +84,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Audio\angel_victory_theme.wav" />
+    <Content Include="Content\Audio\crash_1.wav" />
+    <Content Include="Content\Audio\crash_2.wav" />
+    <Content Include="Content\Audio\crash_3.wav" />
+    <Content Include="Content\Audio\devil_victory_theme.wav" />
+    <Content Include="Content\Audio\explosion.wav" />
+    <Content Include="Content\Audio\mainsong.mp3" />
+    <Content Include="Content\Audio\mainsong.wma" />
+    <Content Include="Content\Audio\main_menu.wav" />
+    <Content Include="Content\Audio\sacrifice_killed.wav" />
+    <Content Include="Content\Audio\sacrifice_pickup.wav" />
+    <Content Include="Content\Audio\Select_sound.wav" />
+    <Content Include="Content\Audio\weapon_hit_sound.wav" />
     <Content Include="Content\GameplayScreen\AngelInstruction.png" />
     <Content Include="Content\GameplayScreen\AngelTire.png" />
     <Content Include="Content\GameplayScreen\AngelTruck.png" />
@@ -148,7 +161,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Audio\angel_victory_theme.xnb" />
     <None Include="Content\Audio\crash_1.xnb" />
     <None Include="Content\Audio\crash_2.xnb" />
     <None Include="Content\Audio\crash_3.xnb" />

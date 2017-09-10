@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GameplayScreen>
+  <background>
+    <Path>GameplayScreen/Arena</Path>
+    <Position>
+      <X>-5000</X>
+      <Y>0</Y>
+    </Position>
+  </background>
+  <truckAngel>
+    <Path>GameplayScreen/AngelTruck</Path>
+  </truckAngel>
+  <tireAngel>
+    <Path>GameplayScreen/AngelTire</Path>
+  </tireAngel>
+  <truckDemon>
+    <Path>GameplayScreen/DemonTruck</Path>
+  </truckDemon>
+  <tireDemon>
+    <Path>GameplayScreen/DemonTire</Path>
+  </tireDemon>
+  <sacrificeSpriteTemp>
+    <Path>GameplayScreen/SacrificeFall</Path>
+  </sacrificeSpriteTemp>
+  <sacrificeSprite>
+    <Path>GameplayScreen/SacrificeMove</Path>
+  </sacrificeSprite>
+  <instructionAngel>
+    <Path>GameplayScreen/AngelInstruction</Path>
+  </instructionAngel>
+  <instructionDemon>
+    <Path>GameplayScreen/DemonInstruction</Path>
+  </instructionDemon>
+  <endText>
+    <Text>
+      Escape: Return to Menu
+      Enter: Restart
+    </Text>
+  </endText>
+</GameplayScreen>

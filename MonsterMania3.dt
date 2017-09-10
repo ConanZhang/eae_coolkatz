@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Settings>
+  <ShowConsole>true</ShowConsole>
+  <ProjectSettings>
+    <AssemblyInfo>C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\Properties\AssemblyInfo.cs</AssemblyInfo>
+    <ReleaseFolder>C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\bin\Windows\Release</ReleaseFolder>
+    <DeployFolder>C:\Users\u0409453\GameDevelopment\MonoGame\Deploy</DeployFolder>
+  </ProjectSettings>
+  <SourceSettings>
+    <SourceFolder>C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz</SourceFolder>
+    <IgnoreFolders>bin, obj, .vs, .git</IgnoreFolders>
+    <SourceChecked>false</SourceChecked>
+  </SourceSettings>
+  <WindowsSettings>
+    <InnoSetupBinary />
+    <SetupGUID />
+    <IconWindows>C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\MonsterMania3Icon.ico</IconWindows>
+    <DeployWinSetup>false</DeployWinSetup>
+    <DeployWinPortable>true</DeployWinPortable>
+  </WindowsSettings>
+  <LinuxSettings>
+    <DeployLinux>true</DeployLinux>
+  </LinuxSettings>
+  <OSXSettings>
+    <IconOSX>C:\Users\u0409453\GameDevelopment\MonoGame\eae_coolkatz\eae_coolkatz\eae_coolkatz\MonsterMania3Icon.icns</IconOSX>
+    <DeployOSX>true</DeployOSX>
+  </OSXSettings>
+</Settings>

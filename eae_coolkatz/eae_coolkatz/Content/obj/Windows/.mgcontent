@@ -27,5 +27,12 @@
     <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/Select_sound.wav</File>
     <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/weapon_hit_sound.wav</File>
     <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Audio/mainsong.mp3</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelInstruction.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelVictoryCard.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/AngelVictoryGate.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonInstruction.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonVictoryCard.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/GameplayScreen/DemonVictoryGate.png</File>
+    <File>C:/Users/u0409453/GameDevelopment/MonoGame/eae_coolkatz/eae_coolkatz/eae_coolkatz/Content/Menu/Tutorial.png</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <Axis>Y</Axis>
+  <Effects>FadeEffect</Effects>
+  <Item>
+    <LinkType>Screen</LinkType>
+    <LinkId>GameplayScreen</LinkId>
+    <Image>
+      <Text>Play</Text>
+    </Image>
+  </Item>
+
+  <Item>
+    <LinkType>Menu</LinkType>
+    <LinkId>Load/Menus/Tutorial.xml</LinkId>
+    <Image>
+      <Text>Tutorial</Text>
+    </Image>
+  </Item>
+
+  <Item>
+    <LinkType>Exit</LinkType>
+    <Image>
+      <Text>Exit</Text>
+    </Image>
+  </Item>
+
+  <Image>
+    <Path>Menu/Background</Path>
+  </Image>
+</Menu>
